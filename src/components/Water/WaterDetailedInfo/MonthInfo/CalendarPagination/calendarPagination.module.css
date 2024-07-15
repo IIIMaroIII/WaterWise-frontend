@@ -2,25 +2,40 @@
     display: flex;
     gap: 12px;
     align-items: center;
-    
 }
-
 .btn {
     background-color: transparent;
     border: none;
 }
-
 .span {
     font-size: 14px;
     font-weight: 700;
     line-height: 18px;
-    color: var(--dark-blue);
+    color: #323F47;
 }
 .arrow {
-    stroke: var(--dark-blue);
+    stroke: #323F47;
     stroke-width: 1;
 }
-
 .pieIcon {
     stroke-opacity: 0.5;
+    transition: stroke-opacity var(--animation-duration) var(--animation-time-function);
+}
+.pieIcon:hover,
+.pieIcon:focus,
+.pieIcon:active {
+    stroke-opacity: 1;
+}
+.pieChart {
+    background-color: transparent;
+    padding: 0;
+}
+@media screen and (min-width: 768px) {
+    .span {
+        font-size: 16px;
+    }
+    .pieIcon {
+        width: 24px;
+        height: 24px;
+    }
 }

@@ -6,6 +6,8 @@
 }
 
 .month {
-    color: var(--dark-blue);
+    color: #323F47;
     margin-right: 58px;
+    font-weight: 700;
+    font-size: 24px;
 }

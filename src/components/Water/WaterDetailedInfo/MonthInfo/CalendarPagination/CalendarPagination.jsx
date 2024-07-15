@@ -1,8 +1,7 @@
 // import { useState, useEffect } from 'react';
-
+import { sprite } from 'src/components/REUSABLE/Icons/index';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
-import Button from '../../../../../components/REUSABLE/Button/Button';
-// import { sprite } from '../../../shared/icons/index';
+import Button from 'src/components/REUSABLE/Button/Button.jsx';
 
 import css from './calendarPagination.module.css';
 // import { Calendar } from '../Calendar/Calendar';
@@ -53,9 +52,9 @@ export const CalendarPagination = ({ selectedDate, setSelectedDate }) => {
       <Button onClick={goToNextMonth} className={css.btn}>
         <BsChevronRight size="12" className={css.arrow} />
       </Button>
-       {/* <svg width="20" height="20" className={css.pieIcon}>
+       <svg width="20" height="20" className={css.pieIcon}>
         <use xlinkHref={`${sprite}#pie_chart`}></use>
-      </svg> */}
+      </svg>
     </div>
   );
 };
