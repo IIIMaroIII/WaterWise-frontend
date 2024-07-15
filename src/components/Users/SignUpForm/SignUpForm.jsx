@@ -1,7 +1,3 @@
-import eyeOpenIcon from './eye.png';
-import eyeClosedIcon from './eye-off.png';
-import Photo from './Rectangle 19.jpg';
-
 import css from './signUpForm.module.css';
 
 import { useState } from 'react';
@@ -10,10 +6,18 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import Button from 'src/components/REUSABLE/Button/Button';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+
+import { signUp } from 'src/redux/users/operations.js';
+import Photo from './Rectangle 19.jpg'; 
 
 const SignUpForm = () => {
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
@@ -36,14 +40,15 @@ const SignUpForm = () => {
   });
 
   const onSubmit = async data => {
-    try {
-      const response = await axios.post('/api/register', data);
-      toast.success('Registration successful!');
-      localStorage.setItem('token', response.data.token);
-      navigate('/tracker');
-    } catch (error) {
-      toast.error('There was an error during registration. Please try again.');
-    }
+    dispatch(signUp(data))
+      .unwrap()
+      .then(() => {
+        toast.success('Registration successful!');
+        navigate('/tracker');
+      })
+      .catch(err => {
+        toast.error('There was an error during registration. Please try again.');
+      });
   };
 
   const togglePasswordVisibility = () => {
@@ -54,7 +59,8 @@ const SignUpForm = () => {
     <div className={css.signUpContainer}>
       <div className={css.signUpForm}>
         <div className={css.formSection}>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
+            {/* <Logo /> */}
             <h2>Sign Up</h2>
             <div className={css.inputContainer}>
               <label>Email</label>
@@ -76,7 +82,7 @@ const SignUpForm = () => {
                 className={css.togglePassword}
                 onClick={togglePasswordVisibility}
               >
-                <img src={showPassword ? eyeOpenIcon : eyeClosedIcon} alt="toggle visibility" />
+                <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} />
               </span>
               {errors.password && <p>{errors.password.message}</p>}
             </div>
@@ -91,11 +97,11 @@ const SignUpForm = () => {
                 className={css.togglePassword}
                 onClick={togglePasswordVisibility}
               >
-                <img src={showPassword ? eyeOpenIcon : eyeClosedIcon} alt="toggle visibility" />
+                <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} />
               </span>
               {errors.repeatPassword && <p>{errors.repeatPassword.message}</p>}
             </div>
-            <button type="submit">Sign Up</button>
+            <Button addClass={css.btnform}> Sign Up</Button>
             <p>
               Already have an account? <a href="/signin">Sign In</a>
             </p>

@@ -3,46 +3,76 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh; /* Оновлено на 100vh для адаптивності */
+  height: 100vh;
   background-color: #f0eff4;
 }
 
 .signInForm {
   display: flex;
-  gap: 32px; /* Додаємо gap між секціями */
-  width: 80%; /* Адаптивна ширина для кращої підтримки різних екранів */
-  max-width: 1200px; /* Максимальна ширина для великого екрана */
-  padding: 32px; /* Додаємо padding для загального контейнера */
-  background-color: #fff; /* Додаємо фон для кращого вигляду */
-  border-radius: 16px; /* Додаємо закруглення */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Додаємо тінь для кращого вигляду */
+  gap: 32px;
+  padding: 32px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.formSection,
+.imageSection {
+  width: 672px;
+  height: 736px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .formSection {
-  flex: 1;
-  padding: 20px; /* Додаємо padding всередині секції форми */
+  padding: 169px 118px;
 }
 
 .imageSection {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-image: url('./Rectangle 19.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  background-repeat: no-repeat;
+}
+.form {
+  width: 436px;
+  height: 398px;
+  padding: 169px 118px;
 }
 
-.imageSection img {
-  max-width: 100%; /* Зміна розміру зображення для підтримки адаптивності */
-  border-radius: 16px; /* Закруглені кути для зображення */
-}
+/* h1 {
+  position: absolute;
+  width: 152px;
+  height: 24px;
+  left: 240px;
+  top: 240px;
+  color: rgb(50, 63, 71);
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -1%;
+  text-align: center;
+  text-transform: uppercase;
+} */
 
 h2 {
-  margin-bottom: 20px;
-  color: #2f2f2f;
+  position: static;
+  width: 436px;
+  height: 38px;
+  color: rgb(50, 63, 71);
+  font-family: Poppins;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: -1%;
+  text-align: left;
 }
 
 .inputContainer {
-  margin-bottom: 15px;
   position: relative;
+  margin-top: 32px;
 }
 
 .inputContainer label {
@@ -56,7 +86,7 @@ h2 {
   width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 15px;
   color: #323f47;
 }
 
@@ -78,7 +108,7 @@ h2 {
   margin: 5px 0 0;
 }
 
-button {
+.buttonSpanSignInForm {
   width: 100%;
   height: 60px;
   border: none;
@@ -87,8 +117,9 @@ button {
   justify-content: center;
   align-items: center;
   padding: 18px;
-  border-radius: 30px;
+  border-radius: 100px;
   background: rgb(155, 225, 160);
+  margin-top: 32px;
 }
 
 button:hover {

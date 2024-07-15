@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import CONSTANTS from 'src/components/Constants/constants.js';
+import CONSTANTS from 'src/components/Constants/constants';
 import { handleToken } from 'src/utils/handleToken';
 
 export const signUp = createAsyncThunk(

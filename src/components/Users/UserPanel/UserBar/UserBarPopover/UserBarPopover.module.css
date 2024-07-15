@@ -1,0 +1,18 @@
+.popover_btn{
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: left;
+}
+.popover_list{
+    border-radius: 15px;
+    padding: 14px 57px 14px 20px;
+    width: 137px;
+    height: 72px;
+    box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

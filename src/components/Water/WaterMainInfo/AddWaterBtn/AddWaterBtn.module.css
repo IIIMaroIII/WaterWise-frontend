@@ -1,0 +1,24 @@
+.plus_icon {
+    color:#fff;
+}
+
+.btn {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    background: #323f47;
+    border-radius: 30px;
+    padding: 14px 20px;
+    width: 140px;
+    height: 46px;
+    color: #fff;
+}
+
+@media screen and (min-width:768px) {
+.btn {
+        padding: 18px 30px;
+        width: 178px;
+        height: 60px;
+    }
+}

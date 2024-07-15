@@ -1,8 +1,13 @@
 import  { useRef, useEffect } from 'react';
-
+import { CiSettings } from "react-icons/ci";
+import { FiLogOut } from "react-icons/fi";
+import css from "./UserBarPopover.module.css"
+import { useDispatch } from 'react-redux';
+import { changeLogoutModalOpen, changeModal, changeUsersSettingsModalOpen } from 'src/redux/water/slice';
 const UserBarPopover = ({ onClose }) => {
   const popoverRef = useRef(null);
-
+  const dispatch = useDispatch();
+  
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (popoverRef.current && !popoverRef.current.contains(event.target)) {
@@ -17,10 +22,13 @@ const UserBarPopover = ({ onClose }) => {
   }, [onClose]);
 
   return (
-    <div ref={popoverRef} className="popover">
-      <button onClick={() => console.log('Open UserSettingsModal')}>Settings</button>
-      <button onClick={() => console.log('Open LogOutModal')}>Log out</button>
-    </div>
+    <ul ref={popoverRef} className={css.popover_list}>
+      <li><button className={css.popover_btn} type="button" onClick={() => { dispatch(changeUsersSettingsModalOpen(true));  dispatch(changeModal(true))}}> 
+         <CiSettings /> Settings
+      </button></li>
+      <li><button className={css.popover_btn} type="button" onClick={() => { dispatch(changeLogoutModalOpen(true)); dispatch(changeModal(true))}}>
+        <FiLogOut /> Log out</button></li>
+    </ul>
   );
 };
 

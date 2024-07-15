@@ -6,11 +6,11 @@ import WaterProgressBar from './WaterProgressBar/WaterProgressBar.jsx';
 
 const WaterMainInfo = () => {
   return (
-    <div className={css.wrapper}>
+    <section className={css.section_wrapper}>
       <WaterDailyNorma />
       <WaterProgressBar />
       <AddWaterBtn />
-    </div>
+    </section>
   );
 };
 

@@ -1,7 +1,13 @@
+import { useSelector } from 'react-redux';
 import css from './WaterProgressBar.module.css';
+import { selectUser } from 'src/redux/users/selectors';
+import { selectWaterItems } from 'src/redux/water/selectors';
 
 const WaterProgressBar = () => {
-  const percentage = (0.3 / 2) * 100;
+  const user = useSelector(selectUser);
+  const dailyWaterVolume = useSelector(selectWaterItems);
+  const totalDailyVolume = dailyWaterVolume.reduce((total, record) => total + record.volume, 0);
+  const percentage = (totalDailyVolume/ (user.dailyNorma*1000)) *100;
   return (
     <div className={css.water_progress_container}>
       <h2>Today</h2>

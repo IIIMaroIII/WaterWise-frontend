@@ -6,18 +6,24 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import Photo from './Rectangle 19.jpg';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+
+import { signIn } from 'src/redux/users/operations.js';
+import { useDispatch } from 'react-redux';
+import Button from 'src/components/REUSABLE/Button/Button';
 
 const SignInForm = () => {
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const validationSchema = Yup.object().shape({
     email: Yup.string().email('Email is invalid').required('Email is required'),
     password: Yup.string()
-      .min(6, 'Password must be at least 6 characters')
+      .min(3, 'Password must be at least 3 characters')
       .required('Password is required'),
   });
 
@@ -30,14 +36,13 @@ const SignInForm = () => {
   });
 
   const onSubmit = async data => {
-    try {
-      const response = await axios.post('/api/login', data);
-      toast.success('Login successful!');
-      localStorage.setItem('token', response.data.token);
-      navigate('/tracker');
-    } catch (error) {
-      toast.error('Email or password is incorrect. Please try again.');
-    }
+    dispatch(signIn(data))
+      .unwrap()
+      .catch(err => {
+        toast.error('Oops, check your email and password and try again 😬');
+      });
+
+    navigate('/tracker');
   };
 
   const togglePasswordVisibility = () => {
@@ -48,7 +53,8 @@ const SignInForm = () => {
     <div className={css.signInContainer}>
       <div className={css.signInForm}>
         <div className={css.formSection}>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form className={css.c} onSubmit={handleSubmit(onSubmit)}>
+            {/* <h1> AquaTrack </h1> тут мусить бути перевикористовуване лого */}
             <h2>Sign In</h2>
             <div className={css.inputContainer}>
               <label>Email</label>
@@ -70,20 +76,19 @@ const SignInForm = () => {
                 className={css.togglePassword}
                 onClick={togglePasswordVisibility}
               >
-                {showPassword ? '👁️' : '👁️'}
+                <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} />
               </span>
               {errors.password && <p>{errors.password.message}</p>}
             </div>
-
-            <button type="submit">Sign In</button>
+            <Button type="submit" addClass={css.buttonSpanSignInForm}>
+              Sign In
+            </Button>
             <p>
               Don’t have an account? <a href="/signup">Sign Up</a>
             </p>
           </form>
         </div>
-        <div className={css.imageSection}>
-          <img src={Photo} alt="photo" />
-        </div>
+        <div className={css.imageSection}></div>
       </div>
       <ToastContainer />
     </div>
