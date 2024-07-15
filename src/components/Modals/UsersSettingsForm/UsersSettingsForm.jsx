@@ -2,45 +2,11 @@ import css from './usersSettingsForm.module.css';
 import React, { useEffect, useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
+
 import axios from 'axios';
 import DailyNorma from './DailyNorma';
+import userSettingSchema from 'src/Validation/Modals/UserSettingSchema.js';
 
-const MAX_CHAR_VALIDATION = 50;
-const MAX_CHAR_WATER_VALIDATION = 15;
-const MIN_CHAR_VALIDATION = 3;
-
-const schema = yup.object().shape({
-  avatar: yup.mixed().required('Avatar is required'),
-  gender: yup.string().required('Gender is required'),
-  name: yup
-    .string()
-    .min(
-      MIN_CHAR_VALIDATION,
-      `Your name must be more than ${MIN_CHAR_VALIDATION} characters!`,
-    )
-    .max(
-      MAX_CHAR_VALIDATION,
-      `Your name must be less than ${MAX_CHAR_VALIDATION} characters!`,
-    )
-    .required('Name is required'),
-  email: yup
-    .string()
-    .email('You must enter valid email address!')
-    .required('Email is required'),
-  weight: yup.number().positive('Weight must be a positive number'),
-  activeTime: yup.number().positive('Active time must be a positive number'),
-
-  waterIntake: yup
-    .number()
-    .positive('Water intake must be a positive number')
-
-    .max(
-      MAX_CHAR_WATER_VALIDATION,
-      `Emount of water intake must not be a greater than ${MAX_CHAR_WATER_VALIDATION} number!`,
-    )
-    .required('Water intake is required'),
-});
 const UsersSettingsForm = ({ isOpen, onClose, onUpdate }) => {
   const [preview, setPreview] = useState(null);
   const {
@@ -50,7 +16,7 @@ const UsersSettingsForm = ({ isOpen, onClose, onUpdate }) => {
     formState: { errors },
     reset,
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(userSettingSchema),
     defaultValues: {
       gender: 'woman',
     },
@@ -105,6 +71,9 @@ const UsersSettingsForm = ({ isOpen, onClose, onUpdate }) => {
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
+          <button type="button" onClick={onClose}>
+            Cancel
+          </button>
           <label>Upload a photo</label>
           <input
             type="file"
@@ -159,9 +128,6 @@ const UsersSettingsForm = ({ isOpen, onClose, onUpdate }) => {
         </div>
 
         <button type="submit">Save</button>
-        <button type="button" onClick={onClose}>
-          Cancel
-        </button>
       </form>
     </div>
   );

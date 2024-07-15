@@ -14,10 +14,16 @@ const WATER_ENDPOINTS = {
   daily: '/v1/water/daily',
   monthly: '/v1/water/monthly',
 };
+const USER_SETTING_CHAR_VALIDATION = {
+  MAX_CHAR_VALIDATION: 50,
+  MAX_CHAR_WATER_VALIDATION: 15,
+  MIN_CHAR_VALIDATION: 3,
+};
 
 const CONSTANTS = {
   USERS_ENDPOINTS,
   AXIOS,
-  WATER_ENDPOINTS
+  WATER_ENDPOINTS,
+  USER_SETTING_CHAR_VALIDATION,
 };
 export default CONSTANTS;
