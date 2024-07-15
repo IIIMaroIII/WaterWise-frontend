@@ -8,10 +8,8 @@ const DailyInfo = () => {
   return (
     <>
       <ChooseDate />
-      <Button addClass={css.btn}>
-        <div className={css.addBtn}>
-          <FaPlus />
-        </div>
+      <Button addClass={css.btn} onClick={() => console.log('add water btn')}>
+        <FaPlus className={css.plusIcon} />
         <span>Add water</span>
       </Button>
       <WaterList />

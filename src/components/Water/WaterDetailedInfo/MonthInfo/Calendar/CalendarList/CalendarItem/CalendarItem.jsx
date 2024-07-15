@@ -1,12 +1,11 @@
-const CalendarItem = ({ day }) => {
-  // const { date, waterConsumption, dailyNorm } = day;
-  // const percentage = (waterConsumption / dailyNorm) * 100;
+import Button from '../../../../../../REUSABLE/Button/Button';
+import css from './calendarItem.module.css';
 
+export const CalendarItem = ({ day }) => {
   return (
-    <button>
-      <span>{day}</span>
-    </button>
+    <>
+      <Button>{day}</Button>
+    </>
   );
 };
-
 export default CalendarItem;

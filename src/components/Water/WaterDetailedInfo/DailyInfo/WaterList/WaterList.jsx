@@ -6,6 +6,10 @@ const WaterList = () => {
   const dailyItems = [
     { volume: '250ml', date: '7:00am', _id: 1 },
     { volume: '350ml', date: '10:00am', _id: 2 },
+    { volume: '250ml', date: '7:00am', _id: 3 },
+    { volume: '350ml', date: '10:00am', _id: 4 },
+    { volume: '250ml', date: '7:00am', _id: 5 },
+    { volume: '350ml', date: '10:00am', _id: 6 },
   ];
 
   return (

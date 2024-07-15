@@ -2,7 +2,7 @@ import { FaGlassWater, FaPen, FaTrash } from 'react-icons/fa6';
 import Button from 'src/components/REUSABLE/Button/Button.jsx';
 import css from './WaterItem.module.css';
 import { useState } from 'react';
-import Modal from 'src/components/Modals/Modal/Modal.jsx';
+import MainModal from 'src/components/Modals/Modal/MainModal.jsx';
 import WaterModal from 'src/components/Modals/Modal/WaterModal/WaterModal.jsx';
 import DeleteWaterModal from 'src/components/Modals/Modal/DeleteWaterModal/DeleteWaterModal.jsx';
 
@@ -28,9 +28,9 @@ const WaterItem = ({ item }) => {
           <FaPen />
         </Button>
         {modalOpen && (
-          <Modal>
+          <MainModal open={modalOpen} close={setModalOpen}>
             <WaterModal operationName="edit" />
-          </Modal>
+          </MainModal>
         )}
 
         <Button
@@ -43,9 +43,9 @@ const WaterItem = ({ item }) => {
           <FaTrash />
         </Button>
         {modalDeleteOpen && (
-          <Modal>
+          <MainModal open={modalDeleteOpen} close={setModalDeleteOpen}>
             <DeleteWaterModal />
-          </Modal>
+          </MainModal>
         )}
       </div>
     </>

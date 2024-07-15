@@ -1,4 +1,4 @@
-.addBtn {
+.plusIcon {
   background-color: var(--green);
   width: 30px;
   height: 30px;
@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: center;
   display: flex;
+  padding: 7px;
 }
 
 .btn {

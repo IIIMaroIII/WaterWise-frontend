@@ -7,6 +7,7 @@ const Navigation = () => {
     <nav className={css.wrapper}>
       <CustomNavLink to="/">Logo</CustomNavLink>
       <CustomNavLink to="/tracker">Tracker</CustomNavLink>
+      <CustomNavLink to="/modals">Modals</CustomNavLink>
     </nav>
   );
 };

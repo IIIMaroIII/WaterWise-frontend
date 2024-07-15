@@ -11,6 +11,7 @@ export const initialState = {
     isUsersSettingsModalOpen: false,
     isLogoutModalOpen: false,
   },
+  chosenDate: null,
   isLoading: false,
   error: null,
 };

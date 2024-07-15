@@ -1,11 +1,15 @@
 .list {
   display: flex;
   gap: 16px;
+  overflow-x: scroll;
+  max-width: 500px;
 }
 
 .item {
-  width: 192px;
+  min-width: 192px;
+  height: 80px;
   display: flex;
+  flex-basis: 200px;
   border: 1px solid black;
   border-radius: 10px;
   gap: 10px;
