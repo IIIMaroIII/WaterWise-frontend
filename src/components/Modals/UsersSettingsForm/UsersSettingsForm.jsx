@@ -72,7 +72,7 @@ const UsersSettingsForm = ({ isOpen, onClose, onUpdate }) => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <button type="button" onClick={onClose}>
-            Cancel
+            x
           </button>
           <label>Upload a photo</label>
           <input
