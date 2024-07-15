@@ -20,8 +20,15 @@ const handlePending = state => {
 };
 export const waterSlice = createSlice({
   name: 'water',
-  initialState: initialState.water,
-  reducers: {},
+  initialState,
+  reducers: {
+    openModal: state => {
+      state.modalFlags.isModalOpen = true;
+    },
+    closeModal: state => {
+      state.modalFlags.isModalOpen = false;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchDailyWater.pending, handlePending)
@@ -79,3 +86,4 @@ export const waterSlice = createSlice({
 });
 
 export const waterReducer = waterSlice.reducer;
+export const { openModal, closeModal } = waterSlice.actions;

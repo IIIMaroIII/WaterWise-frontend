@@ -1,9 +1,13 @@
 import css from './waterModal.module.css';
 import WaterForm from '../../WaterForm/WaterForm.jsx';
+import { useDispatch } from 'react-redux';
+import { closeModal } from 'src/redux/water/slice.js';
 
 const WaterModal = ({ operationName = '' }) => {
+  const dispatch = useDispatch()
   return (
     <div>
+      <button onClick={() => dispatch(closeModal())}>close</button>
       {operationName === 'edit' ? (
         <div>
           <h2>Edit the entered amount of water</h2>
