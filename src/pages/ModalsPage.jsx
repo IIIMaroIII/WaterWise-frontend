@@ -11,7 +11,7 @@ const ModalsPage = () => {
   const [open, setOpen] = useState(false); //delete it after
   const [userSettingsModal, setUserSettingsModal] = useState(true); //delete it after
   const [waterModal, setWaterModal] = useState(false); //delete it after
-  const [logoutModal, setLogoutModal] = useState(false); //delete it after
+  const [logoutModal, setLogoutModal] = useState(true); //delete it after
   const [deleteWaterModal, setDeleteWaterModal] = useState(false); //delete it after //
 
   const renderModal = () => {

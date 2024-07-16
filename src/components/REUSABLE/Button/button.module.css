@@ -1,20 +1,25 @@
 .btn {
-  display: block;
-  /* width: 100%;
-  height: 100%; */
-  padding: 8px 12px;
-  border: none;
+  border-radius: 30px;
+  padding: 14px 40px;
+  width: 116px;
+  height: 46px;
+  background: #9be1a0;
 
-  cursor: pointer;
-  transition: all 250ms ease-in-out;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  text-align: center;
 }
+.btnCancel {
+  display: none;
+}
+
 .btn:hover,
 .btn:focus {
+  background-color: #88d392;
 }
-
+/* 
 .btn:disabled {
 }
 
@@ -22,4 +27,4 @@
 }
 
 .btn.isSelected {
-}
+} */

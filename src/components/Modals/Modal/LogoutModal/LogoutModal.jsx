@@ -2,19 +2,19 @@ import css from './logoutModal.module.css';
 import { useDispatch } from 'react-redux';
 import { logout } from 'src/redux/users/operations';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const LogoutModal = () => {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
 
-  const handleSubmit = (values, actions) => {
+  const handleSubmit = () => {
     dispatch(logout())
       .unwrap()
       .then(() => {
-        toast.success('Registration successful!');
-        navigate('/');
+        toast.success('Logout successful!');
+        Navigate('/');
       })
       .catch(() => toast.error('Oops, Logout went wrong, please try again!'));
   };
