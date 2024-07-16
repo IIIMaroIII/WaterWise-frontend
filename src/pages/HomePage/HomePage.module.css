@@ -1,0 +1,10 @@
+.homePageContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  @media (1440px<=width) {
+    gap: 32px;
+    flex-wrap: nowrap;
+  }
+}

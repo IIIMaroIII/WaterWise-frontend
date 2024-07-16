@@ -1,6 +1,7 @@
 export const initialState = {
   water: {
-    items: [],
+    dailyNorma: 2,
+    dailyItems: [],
     monthlyItems: [],
   },
   modalFlags: {

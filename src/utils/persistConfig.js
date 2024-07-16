@@ -1,12 +1,18 @@
 import storage from 'redux-persist/lib/storage';
 
-const token = {
-  key: 'token',
+const users = {
+  key: 'users',
   storage,
-  whitelist: ['token'],
+  whitelist: ['user'],
   //   blacklist: ["contacts", "isError", "isLoading", "productData"],
 };
+// const email = {
+//   key: 'email',
+//   storage,
+//   whitelist: ['email'],
+//   //   blacklist: ["contacts", "isError", "isLoading", "productData"],
+// };
 
 export const persistConfig = {
-  token,
+  users,
 };

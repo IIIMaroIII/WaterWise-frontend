@@ -15,7 +15,7 @@ import { usersReducer } from './users/slice';
 import { waterReducer } from './water/slice';
 
 const rootReducer = {
-  users: persistReducer(persistConfig.token, usersReducer),
+  users: persistReducer(persistConfig.users, usersReducer),
   water: waterReducer,
 };
 

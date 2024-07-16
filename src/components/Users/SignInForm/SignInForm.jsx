@@ -38,11 +38,15 @@ const SignInForm = () => {
   const onSubmit = async data => {
     dispatch(signIn(data))
       .unwrap()
+      .then(() => {
+        console.log('success');
+        toast.success('You`ve been successfully logged in 😬');
+        navigate('/tracker');
+      })
       .catch(err => {
+        console.log(err);
         toast.error('Oops, check your email and password and try again 😬');
       });
-
-    navigate('/tracker');
   };
 
   const togglePasswordVisibility = () => {

@@ -9,7 +9,7 @@ const UserSettingsModal = () => {
   const handleCloseModal = () => setModalOpen(false);
   const handleUpdate = data => {};
   return (
-    <div>
+    <div className={css.apContainer}>
       <h2 className={css.apSetting}>Setting</h2>
       <button className={css.apSettingButton} onClick={handleOpenModal}>Setting</button>
       <UsersSettingsForm

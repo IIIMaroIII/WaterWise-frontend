@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const handleToken = {
+const handleToken = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
@@ -8,3 +8,5 @@ export const handleToken = {
     axios.defaults.headers.common.Authorization = ``;
   },
 };
+
+export default handleToken;

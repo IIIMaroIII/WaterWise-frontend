@@ -1,21 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap rel="stylesheet"');
+
 :root {
-  --black: #000;
-  --light-grey: rgba(255, 255, 255, 0.87);
-  --middle-grey: rgb(178, 178, 178);
-  --dark-grey: #242424;
-  --grey: rgb(90, 90, 90);
-  --blue: #646cff;
-  --accent-blue: #535bf2;
-  --white: #fff;
-  --red: #d00000;
-  --green: rgb(66, 180, 4);
-  --semi-transparent: rgba(255, 255, 255, 0.7);
-  --semi-transparent-red: rgba(159, 17, 17, 0.895);
-  --shadow: 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.2),
+  --dark-grey: #2f2f2f;
+  --dark-blue: #323f47;
+  --light-green: #9be1a0;
+  --green: #87d28d;
+  --light-grey: #f0eff4;
+  --white: #ffffff;
+  /* --shadow: 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.2),
     0 2px 4px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.4),
     0 8px 16px rgba(0, 0, 0, 0.5);
   --transition-delay: 500ms;
-  --default-delay: 250ms;
+  --default-delay: 250ms;  */
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
 
 ul {
   padding: 0;

@@ -68,97 +68,107 @@ const UsersSettingsForm = ({ isOpen, onClose, onUpdate }) => {
   if (!isOpen) return null;
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <label className={css.apText}>Upload a photo</label>
-          <input
-            type="file"
-            {...register('avatar')}
-            onChange={handleAvatarChange}
-          />
-          {errors.avatar && <p>{errors.avatar.message}</p>}
-          {preview && <img src={preview} alt="Avatar Preview" />}
-        </div>
-        <div>
-          <label className={css.apLabelName}>Your gender identity</label>
-          <br />
-          <label className={css.apText}>
-            <input type="radio" value="woman" {...register('gender')} /> Woman
-          </label>
-          <label className={css.apText}>
-            <input type="radio" value="man" {...register('gender')} /> Man
-          </label>
-          {errors.gender && <p>{errors.gender.message}</p>}
-        </div>
-        <div>
-          <label className={css.apLabelName}>Your name</label>
-          <br />
-          <input className={css.apFrame} type="text" {...register('name')} />
-          {errors.name && <p>{errors.name.message}</p>}
-        </div>
-        <div>
-          <label className={css.apLabelName}>Email</label>
-          <br />
-          <input className={css.apFrame} type="email" {...register('email')} />
-          {errors.email && <p>{errors.email.message}</p>}
-        </div>
-        <div>
-          <DailyNorma />
-        </div>
-        <div>
-          <label className={css.apText}>Your weight in kilograms:</label>
-          <br />
-          <input
-            className={css.apFrame}
-            type="number"
-            {...register('weight')}
-          />
-          {errors.weight && <p>{errors.weight.message}</p>}
-        </div>
-        <div>
-          <label className={css.apText}>
-            The time of active participation in sports:
-          </label>
-          <br />
-          <input
-            className={css.apFrame}
-            type="number"
-            {...register('activeTime')}
-          />
-          {errors.activeTime && <p>{errors.activeTime.message}</p>}
-        </div>
-        <div>
-          <label className={css.apText}>
-            The required amount of water in liters per day:
-          </label>
-          <br />
-          <input
-            className={css.apAmount}
-            type="number"
-            {...register('waterIntake')}
-          />
-          {errors.waterIntake && <p>{errors.waterIntake.message}</p>}
-        </div>
-        <div>
-          <label>Write down how much water you will drink:</label>
-          <br />
-          <input
-            className={css.apFrame}
-            type="number"
-            {...register('waterIntake')}
-          />
-          {errors.waterIntake && <p>{errors.waterIntake.message}</p>}
-        </div>
+    <container>
+      <div>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div>
+            <label className={css.apText}>Upload a photo</label>
+            <input
+              type="file"
+              {...register('avatar')}
+              onChange={handleAvatarChange}
+            />
+            {errors.avatar && <p>{errors.avatar.message}</p>}
+            {preview && <img src={preview} alt="Avatar Preview" />}
+          </div>
+          <div>
+            <label className={css.apLabelName}>Your gender identity</label>
+            <br />
+            <label className={css.apText}>
+              <input type="radio" value="woman" {...register('gender')} /> Woman
+            </label>
+            <label className={css.apText}>
+              <input type="radio" value="man" {...register('gender')} /> Man
+            </label>
+            {errors.gender && <p>{errors.gender.message}</p>}
+          </div>
+          <div>
+            <label className={css.apLabelName}>Your name</label>
+            <br />
+            <input className={css.apFrame} type="text" {...register('name')} />
+            {errors.name && <p>{errors.name.message}</p>}
+          </div>
+          <div>
+            <label className={css.apLabelName}>Email</label>
+            <br />
+            <input
+              className={css.apFrame}
+              type="email"
+              {...register('email')}
+            />
+            {errors.email && <p>{errors.email.message}</p>}
+          </div>
+          <div>
+            <DailyNorma />
+          </div>
+          <div>
+            <label className={css.apText}>Your weight in kilograms:</label>
+            <br />
+            <input
+              className={css.apFrame}
+              type="number"
+              {...register('weight')}
+            />
+            {errors.weight && <p>{errors.weight.message}</p>}
+          </div>
+          <div>
+            <label className={css.apText}>
+              The time of active participation in sports:
+            </label>
+            <br />
+            <input
+              className={css.apFrame}
+              type="number"
+              {...register('activeTime')}
+            />
+            {errors.activeTime && <p>{errors.activeTime.message}</p>}
+          </div>
+          <div>
+            <label className={css.apText}>
+              The required amount of water in liters per day:
+            </label>
+            <br />
+            <input
+              className={css.apAmount}
+              type="number"
+              {...register('waterIntake')}
+            />
+            {errors.waterIntake && <p>{errors.waterIntake.message}</p>}
+          </div>
+          <div>
+            <label>Write down how much water you will drink:</label>
+            <br />
+            <input
+              className={css.apFrame}
+              type="number"
+              {...register('waterIntake')}
+            />
+            {errors.waterIntake && <p>{errors.waterIntake.message}</p>}
+          </div>
 
-        <button className={css.apButton} type="submit">
-          Save
-        </button>
-        <button className={css.apButtonCancel} type="button" onClick={onClose}>
-          Cancel
-        </button>
-      </form>
-    </div>
+          <button className={css.apButton} type="submit">
+            Save
+          </button>
+          <button
+            className={css.apButtonCancel}
+            type="button"
+            onClick={onClose}
+          >
+            Cancel
+          </button>
+        </form>
+      </div>
+    </container>
   );
 };
 export default UsersSettingsForm;

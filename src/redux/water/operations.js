@@ -1,75 +1,88 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 import CONSTANTS from 'src/components/Constants/constants.js';
+import { AxiosWithCredentials, handleToken } from 'src/utils/axios.js';
 
-axios.defaults.baseURL = `${CONSTANTS.AXIOS.baseURL}`;
-
-// export const waterTemplate = createAsyncThunk(
-//   'water/waterTemplate',
-//   async () => {},
-// );
-
-export const fetchDailyWater = createAsyncThunk("water/fetchDaily",
-    async (_, thunkAPI) => {
+export const fetchDailyWater = createAsyncThunk(
+  'water/fetchDaily',
+  async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`${CONSTANTS.WATER_ENDPOINTS.daily}`);
+      const response = await AxiosWithCredentials.get(
+        `${CONSTANTS.WATER_ENDPOINTS.daily}`,
+      );
       console.log(response);
       return response.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
     }
-    catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
-    }
-});
-
+  },
+);
 
 export const addWater = createAsyncThunk(
   'water/addWater',
-  async (volume, thunkAPI) => {
+  async (volume, { getState, rejectWithValue }) => {
+    const token = getState().users.user.token;
+    handleToken.set(token);
     try {
-      const response = await axios.post(`${CONSTANTS.WATER_ENDPOINTS.water}`,  volume );
+      const response = await AxiosWithCredentials.post(
+        `${CONSTANTS.WATER_ENDPOINTS.water}`,
+        volume,
+      );
       console.log(response);
-        return response.data;
+      return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const deleteWater = createAsyncThunk(
   'water/deleteWater',
-  async (id, thunkAPI) => {
+  async (id, { getState, rejectWithValue }) => {
+    const token = getState().users.user.token;
+    handleToken.set(token);
     try {
-        const response = await axios.delete(`${CONSTANTS.WATER_ENDPOINTS.water}/${id}`);
-        console.log(response);
-        return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
-export const changeWater=createAsyncThunk(
-  'water/changeWater',
-  async ({ id, updateVolume },thunkAPI) => {
-    try {
-        const response = await  axios.patch(`${CONSTANTS.WATER_ENDPOINTS.water}/${id}`, updateVolume);
-        return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
-
-export const fetchMonthlyWater = createAsyncThunk(
-  'water/fetchMonthly',
-  async (_, thunkAPI) => {
-    try {
-      const response = await axios.get(`${CONSTANTS.WATER_ENDPOINTS.monthly}`);
+      const response = await AxiosWithCredentials.delete(
+        `${CONSTANTS.WATER_ENDPOINTS.water}/${id}`,
+      );
       console.log(response);
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return rejectWithValue(error.message);
     }
-  }
+  },
+);
+
+export const changeWater = createAsyncThunk(
+  'water/changeWater',
+  async ({ id, updateVolume }, { getState, rejectWithValue }) => {
+    const token = getState().users.user.token;
+    handleToken.set(token);
+    try {
+      const response = await AxiosWithCredentials.patch(
+        `${CONSTANTS.WATER_ENDPOINTS.water}/${id}`,
+        updateVolume,
+      );
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+);
+
+export const fetchMonthlyWater = createAsyncThunk(
+  'water/fetchMonthly',
+  async (_, { getState, rejectWithValue }) => {
+    const token = getState().users.user.token;
+    handleToken.set(token);
+    try {
+      const response = await AxiosWithCredentials.get(
+        `${CONSTANTS.WATER_ENDPOINTS.monthly}`,
+      );
+      console.log(response);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
 );

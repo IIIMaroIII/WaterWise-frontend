@@ -1,0 +1,108 @@
+.homePageBtns {
+  display: flex;
+  gap: 10px;
+
+  @media (width>=768px) {
+    gap: 16px;
+  }
+}
+
+.homePageLinks {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #323f47;
+  border-radius: 30px;
+  text-decoration: none;
+
+  @media (width>=768px) {
+    font-size: 16px;
+    line-height: 150%;
+    height: 60px;
+  }
+}
+
+.linkTracker {
+  padding: 14px 19px;
+  background-color: #9be1a0;
+
+  @media (width>=768px) {
+    padding: 18px 40px;
+  }
+}
+
+.linkSignIn {
+  padding: 14px 28px;
+  background-color: transparent;
+  border: 1px solid #323f47;
+
+  @media (width>=768px) {
+    padding: 18px 40px;
+  }
+}
+
+.homePageWelcomeSection {
+  padding: 24px 16px 81px 16px;
+  border-radius: 30px;
+  background-color: #f0eff4;
+
+  @media (width>=768px) {
+    padding: 32px 93px 68px 32px;
+  }
+
+  @media (width>=1440px) {
+    padding: 32px 61px 206px 32px;
+  }
+}
+
+.homePageWelcomeSectionContainer {
+  margin-top: 74px;
+
+  @media (width>=768px) {
+    width: 579px;
+    padding-left: 32px;
+    margin-top: 50px;
+  }
+
+  @media (width>=1440px) {
+    margin-top: 132px;
+  }
+}
+
+.homePageWelcomeSectionText {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: 0.06em;
+  color: #2f2f2f;
+  text-align: left;
+  margin-top: 0;
+
+  @media (768px<=width) {
+    font-size: 16px;
+    line-height: 150%;
+  }
+}
+
+.homePageWelcomeSectionHeader {
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 100%;
+  letter-spacing: -0.01em;
+  color: #323f47;
+  margin-top: 16px;
+  margin-bottom: 46px;
+
+  @media (768px<=width) {
+    font-size: 64px;
+    line-height: 109%;
+    margin-bottom: 50px;
+  }
+
+  @media (width>=1440px) {
+    font-size: 80px;
+    line-height: 95%;
+  }
+}
