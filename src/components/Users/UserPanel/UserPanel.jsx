@@ -7,7 +7,7 @@ const UserPanel = () => {
   const user = useSelector(selectUser);
   return (
     <div  className={css.user_panel}>
-      <div>Hello, dear {!user.name ? <p>User</p> : <p>{user.name}</p>}</div>
+      <p>Hello, dear {!user.name ? <span>User</span> : <span>{user.name}</span>}!</p>
       <UserBar />
     </div>
   );

@@ -1,5 +1,7 @@
+import css from './ChooseDate.module.css'
+
 const ChooseDate = () => {
-  return <div>Today</div>;
+  return <div className={css.day}>Today</div>;
 };
 
 export default ChooseDate;

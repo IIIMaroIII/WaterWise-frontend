@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const SignInPage = lazy(() => import('./pages/SignInPage'));
-const TrackerPage = lazy(() => import('./pages/TrackerPage'));
+const TrackerPage = lazy(() => import('./pages/TrackerPage/TrackerPage'));
 const SignUpPage = lazy(() => import('./pages/SignUpPage'));
 
 import PrivateRoute from './PrivateRoute';

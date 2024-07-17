@@ -7,11 +7,13 @@ import { FaPlus } from 'react-icons/fa6';
 const DailyInfo = () => {
   return (
     <>
-      <ChooseDate />
-      <Button addClass={css.btn} onClick={() => console.log('add water btn')}>
-        <FaPlus className={css.plusIcon} />
-        <span>Add water</span>
-      </Button>
+      <div className={css.container}>
+        <ChooseDate />
+        <Button addClass={css.btn} onClick={() => console.log('add water btn')}>
+          <FaPlus className={css.plusIcon} />
+          <span className={css.btnSpan}>Add water</span>
+        </Button>
+      </div>
       <WaterList />
     </>
   );

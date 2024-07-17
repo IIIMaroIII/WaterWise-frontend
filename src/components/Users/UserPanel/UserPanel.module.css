@@ -1,0 +1,8 @@
+.user_panel {
+  /* display: flex; */
+  /* justify-content: space-between; */
+  padding: 15px 20px;
+}
+
+@media screen and (max-width: 375px) {
+}

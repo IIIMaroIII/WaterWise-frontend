@@ -5,11 +5,11 @@ import DailyInfo from './DailyInfo/DailyInfo.jsx';
 
 const WaterDetailedInfo = () => {
   return (
-    <div className={css.wrapper}>
+    <section className={css.wrapper}>
       <UserPanel />
       <DailyInfo />
       <MonthInfo />
-    </div>
+    </section>
   );
 };
 

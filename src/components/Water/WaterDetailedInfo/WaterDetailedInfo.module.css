@@ -1,3 +1,16 @@
-.wrapper{
-    border: 1px solid rgb(144, 26, 228);
+.wrapper {
+  border: 1px solid rgb(144, 26, 228);
+  border-radius: 30px;
+  background-color: var(--light-grey);
+  /* width: 672px; */
+}
+
+@media screen and (max-width: 375px) {
+  .wrapper {
+    /* border: 1px solid rgb(144, 26, 228); */
+    /* border-radius: 30px; */
+    /* max-width: 343px; */
+    /* margin: 16px; */
+    /* padding: 15px; */
+  }
 }
