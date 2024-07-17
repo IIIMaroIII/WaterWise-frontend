@@ -71,6 +71,13 @@ const UsersSettingsForm = ({ isOpen, onClose, onUpdate }) => {
     <container>
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>
+          <button
+            className={css.apButtonCancel}
+            type="button"
+            onClick={onClose}
+          >
+            x
+          </button>
           <div>
             <label className={css.apText}>Upload a photo</label>
             <input
@@ -158,13 +165,6 @@ const UsersSettingsForm = ({ isOpen, onClose, onUpdate }) => {
 
           <button className={css.apButton} type="submit">
             Save
-          </button>
-          <button
-            className={css.apButtonCancel}
-            type="button"
-            onClick={onClose}
-          >
-            Cancel
           </button>
         </form>
       </div>
