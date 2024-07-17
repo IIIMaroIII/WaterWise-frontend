@@ -1,7 +1,7 @@
 import { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-const HomePage = lazy(() => import('./pages/HomePage'));
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const SignInPage = lazy(() => import('./pages/SignInPage'));
 const TrackerPage = lazy(() => import('./pages/TrackerPage'));
 const SignUpPage = lazy(() => import('./pages/SignUpPage'));
@@ -60,7 +60,6 @@ function App() {
           <Route path="/tracker" element={<TrackerPage />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/signin" element={<SignInPage />} />
-          <Route path="/modals" element={<ModalsPage />} />
         </Routes>
       </SharedLayout>
     </>
