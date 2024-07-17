@@ -7,7 +7,6 @@ import WaterMainInfo from 'src/components/Water/WaterMainInfo/WaterMainInfo.jsx'
 import { refresh } from 'src/redux/users/operations.js';
 import { fetchDailyWater, fetchMonthlyWater } from 'src/redux/water/operations';
 
-
 const TrackerPage = () => {
   const dispatch = useDispatch();
   // useEffect(() => {

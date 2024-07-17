@@ -7,10 +7,13 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import Button from '../Button/Button';
 import waterSchemas from 'src/Validation/Water/waterSchemas';
 import CONSTANTS from 'src/components/Constants/constants';
+import { addWater } from 'src/redux/water/operations';
+import { useDispatch } from 'react-redux';
 const WaterForm = () => {
   const [amount, setAmount] = useState(50);
   const buttonAddWater = useRef(null);
   const buttonSubtractWater = useRef(null);
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -37,10 +40,12 @@ const WaterForm = () => {
   let waterAmount = watch('waterValue', '');
 
   const onSubmit = ({ waterValue }) => {
-    console.log('Submitted data:', {
-      time: now,
-      waterValue: waterValue,
-    });
+    dispatch(
+      addWater({
+        time: now,
+        waterAmount: waterValue,
+      }),
+    );
   };
 
   const addWaterAmount = () => {
