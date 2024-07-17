@@ -1,15 +1,17 @@
 .btn {
   display: block;
+
   /* width: 100%;
   height: 100%; */
   padding: 8px 12px;
   border: none;
 
+
   cursor: pointer;
   transition: all 250ms ease-in-out;
   font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
+  /* font-size: inherit; */
+  /* font-weight: inherit; */
 }
 .btn:hover,
 .btn:focus {

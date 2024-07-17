@@ -4,8 +4,6 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,6 +12,7 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { signIn } from 'src/redux/users/operations.js';
 import { useDispatch } from 'react-redux';
 import Button from 'src/components/REUSABLE/Button/Button';
+import toast from 'react-hot-toast';
 
 const SignInForm = () => {
   const dispatch = useDispatch();
@@ -38,14 +37,12 @@ const SignInForm = () => {
   const onSubmit = async data => {
     dispatch(signIn(data))
       .unwrap()
-      .then(() => {
-        console.log('success');
-        toast.success('You`ve been successfully logged in 😬');
+      .then(res => {
+        toast.success(res.message);
         navigate('/tracker');
       })
       .catch(err => {
-        console.log(err);
-        toast.error('Oops, check your email and password and try again 😬');
+        toast.error(err.message);
       });
   };
 
@@ -94,7 +91,6 @@ const SignInForm = () => {
         </div>
         <div className={css.imageSection}></div>
       </div>
-      <ToastContainer />
     </div>
   );
 };

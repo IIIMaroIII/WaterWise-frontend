@@ -17,16 +17,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectUserIsLoggedIn } from './redux/users/selectors.js';
 
 function App() {
-  const dispatch = useDispatch();
-  const isUserLoggedIn = useSelector(selectUserIsLoggedIn);
-
-  useEffect(() => {
-    dispatch(refresh())
-      .unwrap()
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
-  }, [dispatch, isUserLoggedIn]);
-
   return (
     <>
       <SharedLayout>

@@ -10,7 +10,7 @@ export const Calendar = ({ selectedDate }) => {
     { length: daysInMonth(selectedDate) },
     (_, index) => index + 1,
   );
-  const getCurrentDate = day => {
+  const getCurrentDate = (day = 1) => {
     const currentDate = new Date();
     currentDate.setDate(day);
     currentDate.setMonth(selectedDate.getMonth());

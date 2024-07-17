@@ -12,12 +12,10 @@ export const usersSlice = createSlice({
         state.error = null;
       })
       .addCase(signUp.fulfilled, (state, { payload }) => {
-        state.user = payload.user;
-        state.token = payload.token;
+        state.user = payload.data;
         state.isLoggedIn = true;
         state.isLoading = null;
         state.error = null;
-        console.log('You`ve been successfully signed up🎊');
       })
       .addCase(signUp.rejected, (state, { payload }) => {
         state.error = payload;

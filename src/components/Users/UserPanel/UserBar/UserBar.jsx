@@ -13,16 +13,21 @@ const UserBar = () => {
   return (
     <>
       <button onClick={togglePopover} className={css.user_bar_wrapper}>
-        {!user.name ? <p>User</p> : <p>{user.name}</p>}
+        {<p>{user?.name}</p> ?? <p>User</p>}
         <div className={css.user_avatar}>
-{!user.avatar ? <img  alt="User Avatar" src="https://png.klev.club/uploads/posts/2024-05/png-klev-club-3aa8-p-ikonka-polzovatelya-png-12.png"/> : <img alt="User Avatar" src={user.photoUrl} />}
+          <img
+            alt="User Avatar"
+            src={
+              user?.photoUrl ??
+              'https://img.icons8.com/?size=100&id=8VXh2TzKXNG8&format=png&color=000000'
+            }
+          />
         </div>
-        {isPopoverOpen? <FaAngleUp />:<FaAngleDown />}
+        {isPopoverOpen ? <FaAngleUp /> : <FaAngleDown />}
       </button>
       {isPopoverOpen && <UserBarPopover onClose={togglePopover} />}
     </>
   );
 };
- 
 
 export default UserBar;
