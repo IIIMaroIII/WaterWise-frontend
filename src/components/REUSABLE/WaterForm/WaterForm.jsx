@@ -3,7 +3,10 @@ import css from './waterForm.module.css';
 import { useForm, Controller } from 'react-hook-form';
 import { IoAddOutline } from 'react-icons/io5';
 import { IoRemoveOutline } from 'react-icons/io5';
+import { yupResolver } from '@hookform/resolvers/yup';
 import Button from '../Button/Button';
+import waterSchemas from 'src/Validation/Water/waterSchemas';
+import CONSTANTS from 'src/components/Constants/constants';
 const WaterForm = () => {
   const [amount, setAmount] = useState(50);
   const buttonAddWater = useRef(null);
@@ -13,11 +16,12 @@ const WaterForm = () => {
     register,
     handleSubmit,
     watch,
-    formState: { isDirty },
+    formState: { isDirty, errors },
     setValue,
     control,
   } = useForm({
     mode: 'onChange',
+    resolver: yupResolver(waterSchemas.waterTemplateSchema),
   });
 
   const getCurrentTime = () => {
@@ -35,14 +39,14 @@ const WaterForm = () => {
   const onSubmit = ({ waterValue }) => {
     console.log('Submitted data:', {
       time: now,
-      waterValue: round(waterValue),
+      waterValue: waterValue,
     });
   };
 
   const addWaterAmount = () => {
     let result = (waterAmount += amount);
     buttonSubtractWater.current.disabled = false;
-    if (result >= 5000) {
+    if (result >= CONSTANTS.WATER_LIMITS.MAX_WATER_LIMIT) {
       buttonAddWater.current.disabled = true;
     }
     setValue('waterValue', result);
@@ -51,28 +55,38 @@ const WaterForm = () => {
   const reduceWater = () => {
     let result = (waterAmount -= amount);
     buttonAddWater.current.disabled = false;
-    if (result <= 0) {
+    if (result <= CONSTANTS.WATER_LIMITS.MIN_WATER_LIMIT) {
       buttonSubtractWater.current.disabled = true;
     }
     setValue('waterValue', result);
   };
 
- function round(number) {
-   if (number >= 1000) {
-     let liters = number / 1000;
-     if (number % 1000 === 0) {
-       return `${liters.toFixed(0)}L`;
-     } else {
-       return `${liters.toFixed(3)}L`;
-     }
-   } else {
-     return `${number}ml`;
-   }
- }
+  function round(number) {
+    if (number >= 1000) {
+      let liters = number / 1000;
+      if (number % 1000 === 0) {
+        return `${liters.toFixed(0)}L`;
+      } else {
+        return `${liters.toFixed(3)}L`;
+      }
+    } else {
+      return `${number}ml`;
+    }
+  }
 
   const handleWaterValueChange = evt => {
     const value = Number(evt.currentTarget.value);
     setValue('waterValue', isNaN(value) ? 0 : value);
+    if (value >= CONSTANTS.WATER_LIMITS.MAX_WATER_LIMIT) {
+      buttonSubtractWater.current.disabled = false;
+      buttonAddWater.current.disabled = true;
+    } else {
+      buttonAddWater.current.disabled = false;
+    }
+    if (value === 0) {
+      buttonSubtractWater.current.disabled = true;
+      buttonAddWater.current.disabled = true;
+    }
     setAmount(value);
   };
 
@@ -111,6 +125,7 @@ const WaterForm = () => {
               {...register('time')}
               className={css.waterInfoField}
             />
+            {errors.time && <p>{errors.time.message}</p>}
           </label>
           <label
             className={`${css.recordingTimeContainer} ${css.waterAmountText}`}
@@ -129,6 +144,7 @@ const WaterForm = () => {
                 />
               )}
             />
+            {errors.waterValue && <p>{errors.waterValue.message}</p>}
           </label>
         </div>
         <Button className={css.saveBtn}>Save</Button>

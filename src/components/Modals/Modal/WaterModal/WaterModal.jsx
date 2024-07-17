@@ -1,5 +1,4 @@
-import css from './waterModal.module.css';
-import WaterForm from '../../WaterForm/WaterForm.jsx';
+import WaterForm from 'src/components/REUSABLE/WaterForm/WaterForm.jsx';
 
 const WaterModal = ({ operationName = '' }) => {
   return (

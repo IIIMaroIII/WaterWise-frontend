@@ -24,6 +24,11 @@ const USER_SETTING_CHAR_VALIDATION = {
   MIN_CHAR_VALIDATION: 3,
 };
 
+const WATER_LIMITS = {
+  MIN_WATER_LIMIT: 10,
+  MAX_WATER_LIMIT: 5000,
+};
+
 const USER = {
   DEFAULT_USER_IMAGE:
     'https://img.icons8.com/?size=100&id=8VXh2TzKXNG8&format=png&color=000000',
@@ -34,6 +39,8 @@ const CONSTANTS = {
   AXIOS,
   WATER_ENDPOINTS,
   USER_SETTING_CHAR_VALIDATION,
+  WATER_LIMITS,
   USER,
 };
+
 export default CONSTANTS;
