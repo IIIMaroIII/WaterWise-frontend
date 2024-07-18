@@ -22,26 +22,25 @@ export const waterSlice = createSlice({
   name: 'water',
   initialState: initialState,
   reducers: {
-    changeModal(state,action) {
-    state.modalFlags.isModalOpen = action.payload;
+    changeModal(state, action) {
+      state.modalFlags.isModalOpen = action.payload;
     },
-    changeWaterModal(state,action) {
-    state.modalFlags.isWaterOpen = action.payload;
+    changeWaterModal(state, action) {
+      state.modalFlags.isWaterOpen = action.payload;
     },
-    changeDeleteWaterModalOpen(state,action) {
-    state.modalFlags.isDeleteWaterModalOpen = action.payload;
-    },
-
-    changeUsersSettingsModalOpen(state,action) {
-    state.modalFlags.isUsersSettingsModalOpen = action.payload;
+    changeDeleteWaterModalOpen(state, action) {
+      state.modalFlags.isDeleteWaterModalOpen = action.payload;
     },
 
-    changeLogoutModalOpen(state,action) {
-    state.modalFlags.isLogoutModalOpen = action.payload;
+    changeUsersSettingsModalOpen(state, action) {
+      state.modalFlags.isUsersSettingsModalOpen = action.payload;
     },
 
+    changeLogoutModalOpen(state, action) {
+      state.modalFlags.isLogoutModalOpen = action.payload;
+    },
   },
-    
+
   extraReducers: builder => {
     builder
       .addCase(fetchDailyWater.pending, handlePending)
@@ -67,7 +66,9 @@ export const waterSlice = createSlice({
       })
       .addCase(deleteWater.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.water.items = state.water.items.filter(item => item.id !== action.payload.id);
+        state.water.items = state.water.items.filter(
+          item => item.id !== action.payload.id,
+        );
         toast(`You deleted a water record!`, {
           style: {
             borderRadius: '10px',
@@ -97,5 +98,11 @@ export const waterSlice = createSlice({
       .addCase(fetchMonthlyWater.rejected, handleRejected);
   },
 });
-export const { changeModal,changeWaterModal,changeDeleteWaterModalOpen, changeUsersSettingsModalOpen,changeLogoutModalOpen } = waterSlice.actions;
+export const {
+  changeModal,
+  changeWaterModal,
+  changeDeleteWaterModalOpen,
+  changeUsersSettingsModalOpen,
+  changeLogoutModalOpen,
+} = waterSlice.actions;
 export const waterReducer = waterSlice.reducer;
