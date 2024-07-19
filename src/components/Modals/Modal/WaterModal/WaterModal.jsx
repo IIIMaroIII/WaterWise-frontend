@@ -23,17 +23,6 @@ const WaterModal = ({ operationType }) => {
   };
   return (
     <div>
-      {/* {operationName === 'edit' ? (
-        <div>
-          <h2>Edit the entered amount of water</h2>
-          <h3>Correct entered data:</h3>
-        </div>
-      ) : (
-        <div>
-          <h2>Edit the entered amount of water</h2>
-          <h3>Choose a value:</h3>
-        </div>
-      )} */}
       <h2>{WaterFormType()}</h2>
       <WaterForm operationName={operationType} />
     </div>

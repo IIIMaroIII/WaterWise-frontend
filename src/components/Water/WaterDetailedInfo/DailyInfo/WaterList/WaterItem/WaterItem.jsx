@@ -12,10 +12,10 @@ import {
 } from 'src/redux/water/slice';
 import { useDispatch } from 'react-redux';
 
-const WaterItem = ({ item }) => {
+const WaterItem = (item, { children, ...otherProps }) => {
   const dispatch = useDispatch();
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalDeleteOpen, setModalDeleteOpen] = useState(false);
+  // const [modalOpen, setModalOpen] = useState(false);
+  // const [modalDeleteOpen, setModalDeleteOpen] = useState(false);
 
   return (
     <>
@@ -31,14 +31,16 @@ const WaterItem = ({ item }) => {
             dispatch(changeWaterModalEdit(true));
             dispatch(changeModal(true));
           }}
+          {...otherProps}
         >
           <FaPen />
+          {children}
         </Button>
-        {modalOpen && (
+        {/* {modalOpen && (
           <MainModal open={modalOpen} close={setModalOpen}>
             <WaterModal operationName="edit" />
           </MainModal>
-        )}
+        )} */}
 
         <Button
           addClass={css.button}
@@ -46,14 +48,16 @@ const WaterItem = ({ item }) => {
             dispatch(changeDeleteWaterModalOpen(true));
             dispatch(changeModal(true));
           }}
+          {...otherProps}
         >
+          {children}
           <FaTrash />
         </Button>
-        {modalDeleteOpen && (
+        {/* {modalDeleteOpen && (
           <MainModal open={modalDeleteOpen} close={setModalDeleteOpen}>
             <DeleteWaterModal />
           </MainModal>
-        )}
+        )} */}
       </div>
     </>
   );

@@ -8,7 +8,8 @@ import {
   changeModal,
   changeUsersSettingsModalOpen,
 } from 'src/redux/water/slice';
-const UserBarPopover = ({ onClose }) => {
+import Button from 'src/components/REUSABLE/Button/Button';
+const UserBarPopover = (onClose, { children, ...otherProps }) => {
   const popoverRef = useRef(null);
   const dispatch = useDispatch();
 
@@ -28,28 +29,30 @@ const UserBarPopover = ({ onClose }) => {
   return (
     <ul ref={popoverRef} className={css.popover_list}>
       <li>
-        <button
+        <Button
           className={css.popover_btn}
           type="button"
           onClick={() => {
             dispatch(changeUsersSettingsModalOpen(true));
             dispatch(changeModal(true));
           }}
+          {...otherProps}
         >
-          <CiSettings /> Settings
-        </button>
+          <CiSettings /> {children || 'Settings'}
+        </Button>
       </li>
       <li>
-        <button
+        <Button
           className={css.popover_btn}
           type="button"
           onClick={() => {
             dispatch(changeLogoutModalOpen(true));
             dispatch(changeModal(true));
           }}
+          {...otherProps}
         >
-          <FiLogOut /> Log out
-        </button>
+          <FiLogOut /> {children || 'Log out'}
+        </Button>
       </li>
     </ul>
   );
