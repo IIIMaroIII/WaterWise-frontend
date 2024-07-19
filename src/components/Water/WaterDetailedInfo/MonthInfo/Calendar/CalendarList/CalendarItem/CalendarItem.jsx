@@ -7,12 +7,17 @@ import useChosenDate from 'src/hooks/useChosenDate.js';
 import { fetchDailyWater } from 'src/redux/water/operations.js';
 import toast from 'react-hot-toast';
 
+
 export const CalendarItem = ({ day }) => {
   const { setChosenDay } = useChosenDate();
   const dispatch = useDispatch();
   const water = useSelector(selectMonthlyWaterItems);
   const user = useSelector(selectUser);
-  const percentage = (water.totalVolume / (user.dailyNorma * 1000)) * 100;
+  
+    
+  const dailyRecord = water.find(record => record.day === day);
+  const dailyVolume = dailyRecord ? dailyRecord.totalVolume : 0;
+  const percentage = (dailyVolume / (user.dailyNorma* 1000)) * 100;
 
   return (
     <>
@@ -33,7 +38,7 @@ export const CalendarItem = ({ day }) => {
         >
           {day}
         </Button>
-        {!water.totalVolume ? <p> 0 %</p> : <p>{`${percentage}%`}</p>}
+        <p>{!percentage? '0%' : percentage > 100 ? '100%' : `${Math.round(percentage)}%`}</p>
       </li>
     </>
 
