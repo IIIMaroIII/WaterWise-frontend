@@ -139,11 +139,13 @@
 }
 
 .homePageBenefitsItemsHabitDrive {
-  background-color: var(--dark-blue);
+  border-radius: 30px;
+  background: rgb(50, 63, 71);
 }
 
 .homePageBenefitsItemsStatistics {
-  background-color: var(--light-green);
+  border-radius: 30px;
+  background: rgb(155, 225, 160);
 }
 
 .homePageBenefitsItemsSettings {
