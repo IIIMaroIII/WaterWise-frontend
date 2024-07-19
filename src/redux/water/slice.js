@@ -59,7 +59,7 @@ export const waterSlice = createSlice({
       })
       .addCase(addWater.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.water.dailyItems.push(action.payload);
+        state.water.dailyItems.push(action.payload.data);
         toast('You add a water record', {
           style: {
             borderRadius: '10px',
@@ -77,6 +77,13 @@ export const waterSlice = createSlice({
       .addCase(fetchMonthlyWater.fulfilled, (state, action) => {
         state.isLoading = false;
         state.water.monthlyItems = action.payload.data;
+      })
+      .addCase(changeWater.fulfilled, (state, action) => {
+        state.isLoading = false;
+      const index = state.water.dailyItems.findIndex(record => record.id === action.payload.id);
+      if (index !== -1) {
+        state.water.dailyItems[index] = action.payload.data;
+      }
       })
       .addCase(changeWater.rejected, handleRejected)
       .addCase(fetchDailyWater.rejected, handleRejected)

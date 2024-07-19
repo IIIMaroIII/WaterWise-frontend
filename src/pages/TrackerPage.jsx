@@ -1,25 +1,22 @@
+import { useEffect } from 'react';
 import toast from 'react-hot-toast';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import Button from 'src/components/REUSABLE/Button/Button.jsx';
 import WaterDetailedInfo from 'src/components/Water/WaterDetailedInfo/WaterDetailedInfo.jsx';
 import WaterMainInfo from 'src/components/Water/WaterMainInfo/WaterMainInfo.jsx';
 import { refresh } from 'src/redux/users/operations.js';
 import { fetchDailyWater, fetchMonthlyWater } from 'src/redux/water/operations';
-import { selectDate } from 'src/redux/water/selectors';
-import { parseDate } from 'src/utils/parseDate';
+
+
 
 
 const TrackerPage = () => {
-  // const selectedDate = useSelector(selectDate);
-  // const { day, month, year } = parseDate(selectedDate);
   const dispatch = useDispatch();
 
-
-  // useEffect(() => {
-
-  //   dispatch(fetchDailyWater({ day, month, year }));
-  //   dispatch(fetchMonthlyWater({month, year }));
-  // }, [dispatch, day, month, year]);
+ useEffect(() => {
+   dispatch(fetchMonthlyWater())
+   dispatch(fetchDailyWater());
+  }, [dispatch]);
 
 
   const handleOnClick = () => {

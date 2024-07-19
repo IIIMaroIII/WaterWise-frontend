@@ -5,12 +5,12 @@ import { AxiosWithCredentials } from 'src/utils/axios.js';
 
 export const fetchDailyWater = createAsyncThunk(
   'water/fetchDaily',
-  async (chosenDate, { getState, rejectWithValue }) => {
+  async (_, { getState, rejectWithValue }) => {
     try {
-
       const { chosenDate } = getState().water;
-      const url = `${CONSTANTS.WATER_ENDPOINTS.daily}?chosenDate=${chosenDate}`;
+      const url = `${CONSTANTS.WATER_ENDPOINTS.daily}?chosenDate=${encodeURIComponent(chosenDate)}`;
       const response = await AxiosWithCredentials.get(url);
+      console.log(response.data);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -57,7 +57,7 @@ export const changeWater = createAsyncThunk(
         `${CONSTANTS.WATER_ENDPOINTS.water}/${id}`,
         updateVolume,
       );
-      console.log(response);
+      console.log(response.data);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -67,11 +67,11 @@ export const changeWater = createAsyncThunk(
 
 export const fetchMonthlyWater = createAsyncThunk(
   'water/fetchMonthly',
-  async ({ month, year }, { rejectWithValue }) => {
+  async (_, { getState, rejectWithValue }) => {
     try {
-      const response = await AxiosWithCredentials.get(
-        `${CONSTANTS.WATER_ENDPOINTS.monthly}/${month}/${year}`,
-      );
+      const { chosenDate } = getState().water;
+      const url = `${CONSTANTS.WATER_ENDPOINTS.monthly}?chosenDate=${encodeURIComponent(chosenDate)}`;
+      const response = await AxiosWithCredentials.get(url);
       console.log(response.data);
       return response.data;
     } catch (error) {
