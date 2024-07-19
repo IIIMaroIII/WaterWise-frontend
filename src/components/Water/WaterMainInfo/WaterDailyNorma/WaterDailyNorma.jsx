@@ -6,7 +6,7 @@ const WaterDailyNorma = () => {
   const user = useSelector(selectUser);
   return (
     <div className={css.daily_norma_wrapper}>
-      <p>{!user ? null : user.dailyNorma}</p>
+      <p>{user.dailyNorma} L</p>
       <div>My water daily norma</div>
     </div>
   );

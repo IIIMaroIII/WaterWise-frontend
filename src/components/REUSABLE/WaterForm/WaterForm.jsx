@@ -7,7 +7,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import Button from '../Button/Button';
 import waterSchemas from 'src/Validation/Water/waterSchemas';
 import CONSTANTS from 'src/components/Constants/constants';
-const WaterForm = () => {
+const WaterForm = ({ operationName }) => {
   const [amount, setAmount] = useState(50);
   const buttonAddWater = useRef(null);
   const buttonSubtractWater = useRef(null);
@@ -147,7 +147,9 @@ const WaterForm = () => {
             {errors.waterValue && <p>{errors.waterValue.message}</p>}
           </label>
         </div>
-        <Button className={css.saveBtn}>Save</Button>
+        <Button className={css.saveBtn}>
+          {operationName === 'edit' ? 'Update' : 'Add'}
+        </Button>
       </form>
     </div>
   );

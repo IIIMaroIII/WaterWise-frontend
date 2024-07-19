@@ -57,7 +57,7 @@
   text-transform: uppercase;
 } */
 
-h2 {
+/* h2 {
   position: static;
   width: 436px;
   height: 38px;
@@ -68,7 +68,8 @@ h2 {
   line-height: 38px;
   letter-spacing: -1%;
   text-align: left;
-}
+  НИКАКИХ ГЛОБАЛЬНЫХ СЕЛЕКТОРОВ !!!!!
+} */
 
 .inputContainer {
   position: relative;
@@ -122,11 +123,14 @@ h2 {
   margin-top: 32px;
 }
 
-button:hover {
+/* button:hover {
   background-color: #88d392;
-}
+  Убью за глобальные СЕЛЕКТОРЫ!!! 
+  Ты хоть представляешь как сложно их найти особенно когда .module.css генерит рандомные имена!!
+  НИКАКИХ ГЛОБАЛЬНЫХ СЕЛЕКТОРОВ !!!!!
+} */
 
-p {
+/* p {
   color: rgb(47, 47, 47);
   font-family: Poppins;
   font-size: 16px;
@@ -134,13 +138,16 @@ p {
   line-height: 24px;
   letter-spacing: -1%;
   text-align: center;
-}
+  НИКАКИХ ГЛОБАЛЬНЫХ СЕЛЕКТОРОВ !!!!!
+}   
 
 p a {
   color: #9be1a0;
   text-decoration: none;
-}
+  НИКАКИХ ГЛОБАЛЬНЫХ СЕЛЕКТОРОВ !!!!!
+}   
 
 p a:hover {
   text-decoration: underline;
-}
+  НИКАКИХ ГЛОБАЛЬНЫХ СЕЛЕКТОРОВ !!!!!
+} */

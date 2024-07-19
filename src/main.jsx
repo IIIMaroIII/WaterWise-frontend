@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Modal from 'react-modal';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
+import Modal from 'react-modal';
 import store, { persistor } from './redux/store.js';
 import App from './App.jsx';
 

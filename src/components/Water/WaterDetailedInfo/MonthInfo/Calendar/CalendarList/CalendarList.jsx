@@ -1,12 +1,15 @@
 import CalendarItem from './CalendarItem/CalendarItem.jsx';
+import css from './calendarList.module.css';
+import useChosenDate from 'src/hooks/useChosenDate.js';
 
-const CalendarList = ({ dayObj }) => {
+const CalendarList = () => {
+  const { getDaysOfMonth } = useChosenDate();
   return (
-    <div>
-      {dayObj.days.map(day => (
-        <CalendarItem key={Math.random()} day={day} />
-      ))}
-    </div>
+    <ul className={css.list}>
+      {getDaysOfMonth().map((day, index) => {
+        return <CalendarItem key={index} day={day} />;
+      })}
+    </ul>
   );
 };
 

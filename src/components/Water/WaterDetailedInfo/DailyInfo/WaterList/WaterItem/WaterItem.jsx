@@ -5,8 +5,15 @@ import { useState } from 'react';
 import MainModal from 'src/components/Modals/Modal/MainModal.jsx';
 import WaterModal from 'src/components/Modals/Modal/WaterModal/WaterModal.jsx';
 import DeleteWaterModal from 'src/components/Modals/Modal/DeleteWaterModal/DeleteWaterModal.jsx';
+import {
+  changeDeleteWaterModalOpen,
+  changeModal,
+  changeWaterModalEdit,
+} from 'src/redux/water/slice';
+import { useDispatch } from 'react-redux';
 
 const WaterItem = ({ item }) => {
+  const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(false);
   const [modalDeleteOpen, setModalDeleteOpen] = useState(false);
 
@@ -21,8 +28,8 @@ const WaterItem = ({ item }) => {
         <Button
           addClass={css.button}
           onClick={() => {
-            setModalOpen(true);
-            console.log('Open edit water modal');
+            dispatch(changeWaterModalEdit(true));
+            dispatch(changeModal(true));
           }}
         >
           <FaPen />
@@ -36,8 +43,8 @@ const WaterItem = ({ item }) => {
         <Button
           addClass={css.button}
           onClick={() => {
-            setModalDeleteOpen(true);
-            console.log('Open delete water modal');
+            dispatch(changeDeleteWaterModalOpen(true));
+            dispatch(changeModal(true));
           }}
         >
           <FaTrash />

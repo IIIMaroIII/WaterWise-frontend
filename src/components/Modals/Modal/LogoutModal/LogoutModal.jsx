@@ -1,10 +1,11 @@
 import css from './logoutModal.module.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logout } from 'src/redux/users/operations';
 import { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import Button from 'src/components/REUSABLE/Button/Button.jsx';
+import { selectIsLogoutModalOpen } from 'src/redux/water/selectors';
 
 const LogoutModal = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const LogoutModal = () => {
     dispatch(logout())
       .unwrap()
       .then(() => {
-        toast.success('Registration successful!');
+        toast.success('Logout successful!');
         navigate('/');
       })
       .catch(() => toast.error('Oops, Logout went wrong, please try again!'));

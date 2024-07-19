@@ -4,9 +4,9 @@ import CONSTANTS from 'src/components/Constants/constants.js';
 import store from 'src/redux/store.js';
 import toast from 'react-hot-toast';
 
-export const Axios = axios.create({
-  baseURL: CONSTANTS.AXIOS.baseURL,
-});
+// export const Axios = axios.create({
+//   baseURL: CONSTANTS.AXIOS.baseURL,
+// });
 
 export const AxiosWithCredentials = axios.create({
   baseURL: CONSTANTS.AXIOS.baseURL,
