@@ -9,7 +9,7 @@ import {
   changeUsersSettingsModalOpen,
 } from 'src/redux/water/slice';
 import Button from 'src/components/REUSABLE/Button/Button';
-const UserBarPopover = (onClose, { children, ...otherProps }) => {
+const UserBarPopover = ({ onClose, children, ...otherProps }) => {
   const popoverRef = useRef(null);
   const dispatch = useDispatch();
 

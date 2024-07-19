@@ -4,7 +4,7 @@ import { FaPlus } from 'react-icons/fa6';
 import { useDispatch } from 'react-redux';
 import { changeModal, changeWaterModalAdd } from 'src/redux/water/slice';
 
-const AddWaterBtn = () => {
+const AddWaterBtn = ({ children, ...otherProps }) => {
   const dispatch = useDispatch();
 
   const openModal = () => {
@@ -12,9 +12,9 @@ const AddWaterBtn = () => {
     dispatch(changeWaterModalAdd(true));
   };
   return (
-    <Button addClass={css.btn} onClick={openModal}>
+    <Button addClass={css.btn} onClick={openModal} {...otherProps}>
       <FaPlus className={css.plus_icon} />
-      Add water
+      {children || 'Add water'}
     </Button>
   );
 };

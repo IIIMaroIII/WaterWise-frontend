@@ -12,7 +12,7 @@ import {
 } from 'src/redux/water/slice';
 import { useDispatch } from 'react-redux';
 
-const WaterItem = (item, { children, ...otherProps }) => {
+const WaterItem = ({ item, children, ...otherProps }) => {
   const dispatch = useDispatch();
   // const [modalOpen, setModalOpen] = useState(false);
   // const [modalDeleteOpen, setModalDeleteOpen] = useState(false);

@@ -6,7 +6,7 @@ import { FaPlus } from 'react-icons/fa6';
 import { changeModal, changeWaterModalAdd } from 'src/redux/water/slice.js';
 import { useDispatch } from 'react-redux';
 
-const DailyInfo = () => {
+const DailyInfo = ({ children, ...otherProps }) => {
   const dispatch = useDispatch();
   return (
     <>
@@ -17,9 +17,10 @@ const DailyInfo = () => {
           dispatch(changeWaterModalAdd(true));
           dispatch(changeModal(true));
         }}
+        {...otherProps}
       >
         <FaPlus className={css.plusIcon} />
-        <span>Add water</span>
+        <span>{children || 'Add water'}</span>
       </Button>
       <WaterList />
     </>

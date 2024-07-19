@@ -1,7 +1,7 @@
 import WaterForm from 'src/components/REUSABLE/WaterForm/WaterForm.jsx';
 
 const WaterModal = ({ operationType }) => {
-  const WaterFormType = () => {
+  const waterFormType = () => {
     switch (operationType) {
       case 'edit':
         return (
@@ -23,8 +23,8 @@ const WaterModal = ({ operationType }) => {
   };
   return (
     <div>
-      <h2>{WaterFormType()}</h2>
-      <WaterForm operationName={operationType} />
+      <h2>{waterFormType()}</h2>
+      <WaterForm />
     </div>
   );
 };

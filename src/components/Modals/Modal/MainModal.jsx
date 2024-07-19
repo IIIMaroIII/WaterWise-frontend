@@ -25,10 +25,10 @@ const MainModal = () => {
 
   const renderModal = () => {
     if (waterModalEdit) {
-      return <WaterModal operationName="edit" />;
+      return <WaterModal operationType="edit" />;
     }
     if (waterModalAdd) {
-      return <WaterModal operationName="add" />;
+      return <WaterModal operationType="add" />;
     }
     if (deleteWaterModal) {
       return <DeleteWaterModal />;
