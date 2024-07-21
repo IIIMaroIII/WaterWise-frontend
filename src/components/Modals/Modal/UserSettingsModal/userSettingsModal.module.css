@@ -1,21 +1,20 @@
 .apSetting {
-    font-family: "Poppins", sans-serif;
-        font-weight: 700;
-        font-size: 20px;
-        line-height: 120%;
-        letter-spacing: -0.01em;
-        color: #323f47;
-        padding-bottom: 20px;
-}
-
-.apSettingButton {
-    display: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: -0.01em;
+  color: #323f47;
+  padding-bottom: 20px;
 }
 
 .apContainer {
-    width: 343px;
-    border-radius: 15px;
-    padding: 40px 20px;
-    box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
-    background: #fff;
+  width: 343px;
+  border-radius: 15px;
+  padding: 40px 20px;
+  box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+.apText {
+  font-size: 60px;
 }

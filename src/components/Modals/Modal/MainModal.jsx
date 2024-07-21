@@ -1,5 +1,5 @@
 import Modal from 'react-modal';
-import css from './modal.module.css';
+import css from './mainModal.module.css';
 import { RxCross1 } from 'react-icons/rx';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -44,7 +44,7 @@ const MainModal = () => {
   };
 
   return (
-    <div>
+    <div className={css.backdrop}>
       <Modal
         appElement={document.getElementById('root')}
         isOpen={modal}
@@ -54,7 +54,10 @@ const MainModal = () => {
       >
         {renderModal()}
 
-        <button className={css.closeBtn} onClick={() => dispatch(changeModal(false))}>
+        <button
+          className={css.closeBtn}
+          onClick={() => dispatch(changeModal(false))}
+        >
           <RxCross1 className={css.crossIcon} />
         </button>
       </Modal>

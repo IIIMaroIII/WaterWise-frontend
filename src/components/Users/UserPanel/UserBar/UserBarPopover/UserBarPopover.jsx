@@ -34,6 +34,7 @@ const UserBarPopover = ({ onClose }) => {
           onClick={() => {
             dispatch(changeUsersSettingsModalOpen(true));
             dispatch(changeModal(true));
+            onClose();
           }}
         >
           <CiSettings /> Settings
@@ -46,6 +47,7 @@ const UserBarPopover = ({ onClose }) => {
           onClick={() => {
             dispatch(changeLogoutModalOpen(true));
             dispatch(changeModal(true));
+            onClose();
           }}
         >
           <FiLogOut /> Log out

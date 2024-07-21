@@ -97,6 +97,13 @@ const DOMAINS = {
   SERVER_DEPLOY: 'https://waterwise-backend.onrender.com',
 };
 
+const MODALS = {
+  SETTINGS_USER_MODAL: {
+    MAX_CHAR_VALIDATION: 50,
+    MAX_CHAR_WATER_VALIDATION: 15,
+    MIN_CHAR_VALIDATION: 3,
+  },
+};
 const CONSTANTS = {
   USERS_ENDPOINTS,
   AXIOS,
@@ -105,6 +112,7 @@ const CONSTANTS = {
   USER,
   DAYS,
   DOMAINS,
+  MODALS,
 };
 
 export default CONSTANTS;
