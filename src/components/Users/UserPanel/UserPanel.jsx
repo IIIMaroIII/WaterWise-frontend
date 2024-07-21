@@ -9,7 +9,7 @@ const UserPanel = () => {
   return (
     <div className={css.user_panel}>
       {/* <div>Hello, dear {!user.name ? <p>User</p> : <p>{user.name}</p>}</div> */}
-      <div>Hello, dear {<p>{user?.name}</p> ?? <p>User</p>}</div>
+      <div>Hello, dear {<span>{user?.name}</span> ?? <span>User</span>}</div>
       <UserBar />
     </div>
   );

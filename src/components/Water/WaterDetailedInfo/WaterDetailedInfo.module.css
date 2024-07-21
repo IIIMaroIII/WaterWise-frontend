@@ -1,3 +1,15 @@
-.wrapper{
-    border: 1px solid rgb(144, 26, 228);
+.wrapper {
+  border-radius: 30px;
+  background-color: var(--background-grey);
+  /* width: 672px; */
+  padding: 40px 20px;
+}
+
+@media screen and (min-width: 375px) {
+  .wrapper {
+    /* border-radius: 30px; */
+    /* max-width: 343px; */
+    /* margin: 16px; */
+    /* padding: 15px; */
+  }
 }

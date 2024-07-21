@@ -8,7 +8,6 @@ import {
   fetchDailyWater,
   fetchMonthlyWater,
 } from './operations.js';
-import { formatISO } from 'date-fns';
 
 const handleRejected = state => {
   state.isLoading = false;
@@ -32,18 +31,41 @@ export const waterSlice = createSlice({
     },
     changeWaterModalEdit(state, action) {
       state.modalFlags.isWaterModalEdit = action.payload;
+      state.modalFlags.isDeleteWaterModalOpen = false;
+      state.modalFlags.isLogoutModalOpen = false;
+      state.modalFlags.isUsersSettingsModalOpen = false;
+      state.modalFlags.isWaterModalAdd = false;
     },
     changeWaterModalAdd(state, action) {
       state.modalFlags.isWaterModalAdd = action.payload;
+      state.modalFlags.isDeleteWaterModalOpen = false;
+      state.modalFlags.isLogoutModalOpen = false;
+      state.modalFlags.isUsersSettingsModalOpen = false;
+      state.modalFlags.isWaterModalEdit = false;
     },
     changeDeleteWaterModalOpen(state, action) {
       state.modalFlags.isDeleteWaterModalOpen = action.payload;
+      state.modalFlags.isWaterModalAdd = false;
+      state.modalFlags.isLogoutModalOpen = false;
+      state.modalFlags.isUsersSettingsModalOpen = false;
+      state.modalFlags.isWaterModalEdit = false;
     },
     changeUsersSettingsModalOpen(state, action) {
       state.modalFlags.isUsersSettingsModalOpen = action.payload;
+      state.modalFlags.isWaterModalAdd = false;
+      state.modalFlags.isLogoutModalOpen = false;
+      state.modalFlags.isDeleteWaterModalOpen = false;
+      state.modalFlags.isWaterModalEdit = false;
     },
     changeLogoutModalOpen(state, action) {
       state.modalFlags.isLogoutModalOpen = action.payload;
+      state.modalFlags.isWaterModalAdd = false;
+      state.modalFlags.isDeleteWaterModalOpen = false;
+      state.modalFlags.isUsersSettingsModalOpen = false;
+      state.modalFlags.isWaterModalEdit = false;
+    },
+    totalDailyVolumes(state, { payload }) {
+      state.water.totalDailyVolume = payload;
     },
   },
   extraReducers: builder => {
@@ -55,7 +77,7 @@ export const waterSlice = createSlice({
       .addCase(fetchMonthlyWater.pending, handlePending)
       .addCase(fetchDailyWater.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.water.dailyItems = payload.data;
+        state.water.dailyItems = payload;
       })
       .addCase(addWater.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -74,9 +96,9 @@ export const waterSlice = createSlice({
           item => item.id !== action.payload.id,
         );
       })
-      .addCase(fetchMonthlyWater.fulfilled, (state, action) => {
+      .addCase(fetchMonthlyWater.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.water.monthlyItems = action.payload.data;
+        state.water.monthlyItems = payload;
       })
       .addCase(changeWater.rejected, handleRejected)
       .addCase(fetchDailyWater.rejected, handleRejected)
@@ -85,7 +107,6 @@ export const waterSlice = createSlice({
       .addCase(fetchMonthlyWater.rejected, handleRejected);
   },
 });
-
 export const {
   changeModal,
   setChosenDate,
@@ -94,6 +115,7 @@ export const {
   changeDeleteWaterModalOpen,
   changeUsersSettingsModalOpen,
   changeLogoutModalOpen,
+  totalDailyVolumes,
 } = waterSlice.actions;
 
 export const waterReducer = waterSlice.reducer;

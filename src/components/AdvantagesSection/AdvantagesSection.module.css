@@ -28,11 +28,13 @@
   top: 209px;
   left: 16px;
   text-align: center;
+  align-items: center;
   font-weight: 700;
   font-size: 12px;
   line-height: 117%;
-  color: var(--dark-blue);
+  color: var(--basic-dark-blue);
   display: inline-flex;
+  gap: 4px;
 
   @media (width>=768px) {
     top: 283px;
@@ -49,7 +51,7 @@
 }
 
 .homePageCustomersSpan {
-  color: var(--light-green);
+  color: var(--basic-green);
 }
 
 .homePageCustomersPhotoContainer {
@@ -116,7 +118,7 @@
 }
 
 .homePageBenefitsLinksStatistics {
-  color: var(--dark-blue);
+  color: var(--basic-dark-blue);
 }
 
 .homePageBenefitsLinksHabitDrive {
@@ -139,22 +141,22 @@
 }
 
 .homePageBenefitsItemsHabitDrive {
-  background-color: var(--dark-blue);
+  background-color: var(--basic-dark-blue);
 }
 
 .homePageBenefitsItemsStatistics {
-  background-color: var(--light-green);
+  background-color: var(--basic-green);
 }
 
 .homePageBenefitsItemsSettings {
   background-color: var(--white);
-  color: var(--dark-blue);
+  color: var(--basic-dark-blue);
 }
 
 .homePageBenefitsIcon {
   width: 7px;
   height: 7px;
-  background-color: var(--light-green);
+  background-color: var(--basic-green);
   border-radius: 100%;
   margin-right: 4px;
   vertical-align: middle;

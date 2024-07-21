@@ -148,7 +148,8 @@ const WaterForm = ({ operationName }) => {
           </label>
         </div>
         <Button className={css.saveBtn}>
-          {operationName === 'edit' ? 'Update' : 'Add'}
+          Save
+          {/* {operationName === 'edit' ? 'Update' : 'Add'} */}
         </Button>
       </form>
     </div>

@@ -4,6 +4,7 @@ import { selectUser } from 'src/redux/users/selectors';
 import UserBarPopover from './UserBarPopover/UserBarPopover.jsx';
 import css from './UserBar.module.css';
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa6';
+import Button from 'src/components/REUSABLE/Button/Button.jsx';
 const UserBar = () => {
   const user = useSelector(selectUser);
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
@@ -11,8 +12,8 @@ const UserBar = () => {
     setIsPopoverOpen(!isPopoverOpen);
   };
   return (
-    <>
-      <button onClick={togglePopover} className={css.user_bar_wrapper}>
+    <div className={css.container}>
+      <Button onClick={togglePopover} addClass={css.user_bar_wrapper}>
         {<p>{user?.name}</p> ?? <p>User</p>}
         <div className={css.user_avatar}>
           <img
@@ -23,10 +24,14 @@ const UserBar = () => {
             }
           />
         </div>
-        {isPopoverOpen ? <FaAngleUp /> : <FaAngleDown />}
-      </button>
+        {isPopoverOpen ? (
+          <FaAngleUp className={css.arrowIcon} />
+        ) : (
+          <FaAngleDown className={css.arrowIcon} />
+        )}
+      </Button>
       {isPopoverOpen && <UserBarPopover onClose={togglePopover} />}
-    </>
+    </div>
   );
 };
 

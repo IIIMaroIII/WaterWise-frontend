@@ -9,20 +9,22 @@ import { useDispatch } from 'react-redux';
 const DailyInfo = () => {
   const dispatch = useDispatch();
   return (
-    <>
-      <ChooseDate />
-      <Button
-        addClass={css.btn}
-        onClick={() => {
-          dispatch(changeWaterModalAdd(true));
-          dispatch(changeModal(true));
-        }}
-      >
-        <FaPlus className={css.plusIcon} />
-        <span>Add water</span>
-      </Button>
+    <div className={css.container}>
+      <div className={css.todayLine}>
+        <ChooseDate />
+        <Button
+          addClass={css.btn}
+          onClick={() => {
+            dispatch(changeWaterModalAdd(true));
+            dispatch(changeModal(true));
+          }}
+        >
+          <FaPlus className={css.plusIcon} />
+          <span className={css.btnSpan}>Add water</span>
+        </Button>
+      </div>
       <WaterList />
-    </>
+    </div>
   );
 };
 

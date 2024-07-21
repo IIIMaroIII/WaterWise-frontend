@@ -26,27 +26,36 @@
 
 .linkTracker {
   padding: 14px 19px;
-  background-color: #9be1a0;
+  background-color: var(--basic-green);
 
   @media (width>=768px) {
     padding: 18px 40px;
   }
+}
+
+.linkTracker:hover {
+  background-color: var(--green-hover);
 }
 
 .linkSignIn {
   padding: 14px 28px;
   background-color: transparent;
-  border: 1px solid #323f47;
+  border: 1px solid var(--basic-dark-blue);
 
   @media (width>=768px) {
     padding: 18px 40px;
   }
 }
 
+.linkSignIn:hover {
+  border: 1px solid var(--green-hover);
+  color: var(--green-hover);
+}
+
 .homePageWelcomeSection {
   padding: 24px 16px 81px 16px;
   border-radius: 30px;
-  background-color: #f0eff4;
+  background-color: var(--background-grey);
 
   @media (width>=768px) {
     padding: 32px 93px 68px 32px;
@@ -54,6 +63,18 @@
 
   @media (width>=1440px) {
     padding: 32px 61px 206px 32px;
+  }
+
+  &.disabled {
+    padding-bottom: 67px;
+
+    @media (width>=768px) {
+      padding-bottom: 50px;
+    }
+
+    @media (width>=1440px) {
+      padding-bottom: 188px;
+    }
   }
 }
 
@@ -76,7 +97,7 @@
   font-size: 14px;
   line-height: 129%;
   letter-spacing: 0.06em;
-  color: #2f2f2f;
+  color: var(--text-grey);
   text-align: left;
   margin-top: 0;
 
@@ -91,7 +112,7 @@
   font-size: 38px;
   line-height: 100%;
   letter-spacing: -0.01em;
-  color: #323f47;
+  color: var(--basic-dark-blue);
   margin-top: 16px;
   margin-bottom: 46px;
 
@@ -105,4 +126,16 @@
     font-size: 80px;
     line-height: 95%;
   }
+}
+
+.disabledTracker {
+  pointer-events: none;
+  color: var(--disabled-grey);
+  background-color: transparent;
+}
+
+.disabledSignIn {
+  pointer-events: none;
+  border: 1px solid var(--basic-dark-blue);
+  opacity: 0.2;
 }

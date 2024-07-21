@@ -1,5 +1,5 @@
 .plusIcon {
-  background-color: var(--green);
+  background-color: var(--basic-green);
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -14,4 +14,21 @@
   gap: 10px;
   background-color: transparent;
   align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.btnSpan {
+  font-weight: 700;
+  line-height: 150%;
+}
+
+.todayLine {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

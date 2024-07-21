@@ -15,7 +15,11 @@ export const signUp = createAsyncThunk(
       }
       return res.data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue({
+        message: error.message,
+        statusCode: error.response?.status,
+        data: error.response?.data,
+      });
     }
   },
 );
@@ -29,11 +33,15 @@ export const signIn = createAsyncThunk(
         credentials,
       );
       if (res.status > 300) {
-        return rejectWithValue(res.statusText);
+        return rejectWithValue(res.message);
       }
       return res.data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue({
+        message: error.message,
+        statusCode: error.response?.status,
+        data: error.response?.data,
+      });
     }
   },
 );
@@ -51,7 +59,11 @@ export const logout = createAsyncThunk(
       }
     } catch (error) {
       console.log(error);
-      return rejectWithValue(error.message);
+      return rejectWithValue({
+        message: error.message,
+        statusCode: error.response?.status,
+        data: error.response?.data,
+      });
     }
   },
 );
@@ -69,7 +81,11 @@ export const refresh = createAsyncThunk(
       return res.data;
     } catch (error) {
       console.log(error);
-      return rejectWithValue(error.message);
+      return rejectWithValue({
+        message: error.message,
+        statusCode: error.response?.status,
+        data: error.response?.data,
+      });
     }
   },
 );

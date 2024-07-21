@@ -1,0 +1,45 @@
+.mainModalStyle {
+  padding: 40px 20px 40px 20px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
+  background: rgb(255, 255, 255);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+@media screen and (min-width: 768px) {
+  .mainModalStyle {
+    padding: 40px;
+  }
+  .crossIcon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .closeBtn {
+    padding: 7px;
+    right: 20px;
+  }
+}
+
+.crossIcon {
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  display: block;
+}
+
+.closeBtn {
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  padding: 6px;
+  top: 20px;
+  right: 16px;
+}

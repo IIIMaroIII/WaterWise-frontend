@@ -1,153 +1,218 @@
+.imageSection {
+  display: none;
+}
+
 .signInContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
   height: 100vh;
-  background-color: #f0eff4;
+  margin: 16px;
+  background-color: var(--white);
 }
 
 .signInForm {
   display: flex;
-  gap: 32px;
-  padding: 32px;
-  background-color: #fff;
-  border-radius: 16px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--white);
+  border-radius: 30px;
+  overflow: hidden;
+  width: 343px;
+  height: 780px;
 }
-
-.formSection,
-.imageSection {
-  width: 672px;
-  height: 736px;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.formSection {
-  padding: 169px 118px;
-}
-
-.imageSection {
-  background-image: url('./Rectangle 19.jpg');
-  background-size: cover;
-  background-position: center;
-  border-radius: 16px;
-  background-repeat: no-repeat;
-}
-.form {
-  width: 436px;
-  height: 398px;
-  padding: 169px 118px;
-}
-
-/* h1 {
-  position: absolute;
-  width: 152px;
-  height: 24px;
-  left: 240px;
-  top: 240px;
-  color: rgb(50, 63, 71);
-  font-family: Poppins;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 24px;
-  letter-spacing: -1%;
-  text-align: center;
-  text-transform: uppercase;
-} */
-
-/* h2 {
-  position: static;
-  width: 436px;
-  height: 38px;
-  color: rgb(50, 63, 71);
-  font-family: Poppins;
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 38px;
-  letter-spacing: -1%;
-  text-align: left;
-  НИКАКИХ ГЛОБАЛЬНЫХ СЕЛЕКТОРОВ !!!!!
-} */
 
 .inputContainer {
   position: relative;
-  margin-top: 32px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
 }
 
-.inputContainer label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #323f47;
-}
-
-.inputContainer input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 15px;
-  color: #323f47;
-}
-
-.inputContainer input:focus {
-  border-color: #9be1a0;
-  outline: none;
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 .inputContainer .togglePassword {
   position: absolute;
-  right: 10px;
-  top: 65%;
-  transform: translateY(-50%);
+  right: 18px;
   cursor: pointer;
 }
 
+.formSection {
+  flex: 1;
+}
+
+.formSection,
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 170px 16px;
+  background-color: #f0eff4;
+}
+
+.formTitle {
+  margin-bottom: 20px;
+  color: #323f47;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin-bottom: 32px;
+}
+
+.inputContainer {
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.formLabel {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.29;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--black);
+}
+
+.inputContainer input {
+  width: 100%;
+  padding: 16px 0 16px 16px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--black);
+  opacity: 60%;
+}
+
+.inputContainer input:focus {
+  border-color: var(--green-hover);
+  outline: none;
+}
+
 .inputContainer p {
-  color: #ff0000;
+  color: #ef5050;
   margin: 5px 0 0;
 }
 
-.buttonSpanSignInForm {
-  width: 100%;
-  height: 60px;
-  border: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 18px;
-  border-radius: 100px;
-  background: rgb(155, 225, 160);
-  margin-top: 32px;
+.spanSignIn p {
+  color: #2f2f2f80;
+  opacity: 50%;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
 }
 
-/* button:hover {
-  background-color: #88d392;
-  Убью за глобальные СЕЛЕКТОРЫ!!! 
-  Ты хоть представляешь как сложно их найти особенно когда .module.css генерит рандомные имена!!
-  НИКАКИХ ГЛОБАЛЬНЫХ СЕЛЕКТОРОВ !!!!!
-} */
-
-/* p {
-  color: rgb(47, 47, 47);
-  font-family: Poppins;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 24px;
-  letter-spacing: -1%;
+.spanSignIn {
+  margin-top: 16px;
+  display: flex;
+  gap: 5px;
   text-align: center;
-  НИКАКИХ ГЛОБАЛЬНЫХ СЕЛЕКТОРОВ !!!!!
-}   
+  justify-content: center;
+  color: #000;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+  cursor: pointer;
+  letter-spacing: -0.01em;
+}
 
-p a {
-  color: #9be1a0;
-  text-decoration: none;
-  НИКАКИХ ГЛОБАЛЬНЫХ СЕЛЕКТОРОВ !!!!!
-}   
+.link {
+  height: 18px;
+  color: #2f2f2f;
+}
 
-p a:hover {
-  text-decoration: underline;
-  НИКАКИХ ГЛОБАЛЬНЫХ СЕЛЕКТОРОВ !!!!!
-} */
+.btnform {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  font-family: Poppins;
+  background-color: #9be1a0;
+  border: none;
+  border-radius: 30px;
+  color: rgb(65, 71, 50);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.29;
+  cursor: pointer;
+  margin-top: 32px;
+
+  letter-spacing: -0.01em;
+  padding: 16px 0;
+}
+
+.form input:hover,
+.form input:focus {
+  border-color: var(--green-hover);
+}
+
+.btnform:hover,
+.btnform:active {
+  background-color: #87d28d;
+}
+
+/* Додайте ці стилі для неактивної кнопки */
+.btnform:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.btnform:disabled:hover,
+.btnform:disabled:focus {
+  transform: scale(1); /* Відміняє збільшення при наведенні */
+}
+
+@media (min-width: 768px) {
+  .formSection {
+    padding: 32px;
+    display: block;
+  }
+
+  .formTitle {
+    font-size: 36px;
+  }
+
+  .signInForm {
+    width: 704px;
+    height: 960px;
+    background-color: var(--white);
+  }
+
+  .form {
+    min-width: 436px;
+    height: auto;
+    padding: 227px 102px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .signInForm {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    height: 736px;
+    background-color: var(--white);
+    border-radius: 30px;
+    overflow: hidden;
+  }
+  .imageSection {
+    display: block;
+  }
+  .formSection,
+  .imageSection {
+    width: 672px;
+    height: 736px;
+    border-radius: 30px;
+  }
+
+  .formSection {
+    margin-right: 32px;
+  }
+
+  .form {
+    padding: 130px 118px;
+  }
+}

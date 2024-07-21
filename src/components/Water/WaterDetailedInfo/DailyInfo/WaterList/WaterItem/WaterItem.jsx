@@ -1,30 +1,36 @@
-import { FaGlassWater, FaPen, FaTrash } from 'react-icons/fa6';
 import Button from 'src/components/REUSABLE/Button/Button.jsx';
 import css from './WaterItem.module.css';
-import { useState } from 'react';
-import MainModal from 'src/components/Modals/Modal/MainModal.jsx';
-import WaterModal from 'src/components/Modals/Modal/WaterModal/WaterModal.jsx';
-import DeleteWaterModal from 'src/components/Modals/Modal/DeleteWaterModal/DeleteWaterModal.jsx';
 import {
   changeDeleteWaterModalOpen,
   changeModal,
   changeWaterModalEdit,
 } from 'src/redux/water/slice';
 import { useDispatch } from 'react-redux';
+import sprite from 'src/assets/pictures/HomePage/sprite.svg';
 
 const WaterItem = ({ item }) => {
   const dispatch = useDispatch();
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalDeleteOpen, setModalDeleteOpen] = useState(false);
+
+  const date = new Date(item.date);
+  const options = {
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true,
+  };
+  const itemTime = date.toLocaleString('en-US', options);
+
+  const checkVolume = volume => {
+    if (volume < 1000) return `${volume} ml`;
+    if (volume > 1000) return `${volume} L`;
+  };
 
   return (
     <>
-      <div>
-        <FaGlassWater />
-        <p>{item.volume}</p>
-        <p>{item.date}</p>
-      </div>
-      <div className={css.btnContainer}>
+      <svg className={css.iconGlass}>
+        <use href={`${sprite}#icon-glass`}></use>
+      </svg>
+      <div className={css.wrapper}>
+        <p className={css.volume}>{checkVolume(item.volume)}</p>
         <Button
           addClass={css.button}
           onClick={() => {
@@ -32,14 +38,12 @@ const WaterItem = ({ item }) => {
             dispatch(changeModal(true));
           }}
         >
-          <FaPen />
+          <svg className={css.icon}>
+            <use href={`${sprite}#icon-pen`}></use>
+          </svg>
         </Button>
-        {modalOpen && (
-          <MainModal open={modalOpen} close={setModalOpen}>
-            <WaterModal operationName="edit" />
-          </MainModal>
-        )}
 
+        <p className={css.itemTime}>{itemTime}</p>
         <Button
           addClass={css.button}
           onClick={() => {
@@ -47,13 +51,10 @@ const WaterItem = ({ item }) => {
             dispatch(changeModal(true));
           }}
         >
-          <FaTrash />
+          <svg className={css.icon}>
+            <use href={`${sprite}#icon-trash`}></use>
+          </svg>
         </Button>
-        {modalDeleteOpen && (
-          <MainModal open={modalDeleteOpen} close={setModalDeleteOpen}>
-            <DeleteWaterModal />
-          </MainModal>
-        )}
       </div>
     </>
   );

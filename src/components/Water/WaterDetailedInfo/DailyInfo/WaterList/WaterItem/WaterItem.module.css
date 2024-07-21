@@ -8,8 +8,57 @@
   padding: 0;
 }
 
-.btnContainer {
+.icon {
+  width: 14px;
+  height: 14px;
+  fill: var(--white);
+  stroke: black;
+}
+
+.iconGlass {
+  fill: var(--basic-green);
+  width: 38px;
+  height: 38px;
+}
+
+.editArea {
   display: flex;
-  flex-direction: column;
-  gap: 14px;
+  gap: 10px;
+}
+
+.container {
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 18px 14px;
+  margin: 0 auto;
+  gap: 10px; */
+}
+
+.volume {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 100%;
+  color: var(--main);
+}
+
+.itemTime {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  color: rgba(47, 47, 47, 0.6);
+}
+
+.wrapper {
+  display: grid;
+  gap: 6px 10px;
+  grid-template-columns: repeat(2, auto);
+}
+
+@media screen and (min-width: 768px) {
+  /* .wrapper {
+
+  } */
 }

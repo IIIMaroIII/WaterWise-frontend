@@ -1,18 +1,23 @@
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../../../../../REUSABLE/Button/Button';
 import css from './calendarItem.module.css';
-import { selectMonthlyWaterItems } from 'src/redux/water/selectors';
+import {
+  selectMonthlyWaterItems,
+  selectTotalDailyVolume,
+} from 'src/redux/water/selectors';
 import { selectUser } from 'src/redux/users/selectors';
 import useChosenDate from 'src/hooks/useChosenDate.js';
 import { fetchDailyWater } from 'src/redux/water/operations.js';
 import toast from 'react-hot-toast';
+import { totalDailyVolumes } from 'src/redux/water/slice.js';
+import { useDailyVolumes } from 'src/hooks/useDailyVolumes.js';
 
 export const CalendarItem = ({ day }) => {
-  const { setChosenDay } = useChosenDate();
   const dispatch = useDispatch();
-  const water = useSelector(selectMonthlyWaterItems);
-  const user = useSelector(selectUser);
-  const percentage = (water.totalVolume / (user.dailyNorma * 1000)) * 100;
+  const { setChosenDay } = useChosenDate();
+  const { dailyVolumesPercentage, dailyItems } = useDailyVolumes();
+
+  
 
   return (
     <>
@@ -24,19 +29,27 @@ export const CalendarItem = ({ day }) => {
             dispatch(fetchDailyWater())
               .unwrap()
               .then(res => {
-                res?.data?.length === 0
-                  ? toast('You haven`t got your volumes for chosen day')
-                  : toast.success(res.message);
+                if (res) {
+                  return toast.success(
+                    'Your daily records have been successfully fetched!',
+                  );
+                }
+                dispatch(totalDailyVolumes(0));
+                return toast(
+                  'Your have not got any volume records for chosen day!',
+                );
               })
-              .catch(err => toast.error(err.message));
+              .catch(err => {
+                console.log(err);
+                return toast.error(err);
+              });
           }}
         >
           {day}
         </Button>
-        {!water.totalVolume ? <p> 0 %</p> : <p>{`${percentage}%`}</p>}
+        {!dailyItems ? <p> 0 %</p> : <p>{`${dailyVolumesPercentage}%`}</p>}
       </li>
     </>
-
   );
 };
 

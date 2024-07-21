@@ -2,16 +2,46 @@
   display: flex;
   gap: 16px;
   overflow-x: scroll;
-  max-width: 500px;
+  width: 100%;
+  /* max-width: 672px; */
+  margin: 0 auto;
+  padding-bottom: 24px;
 }
 
+.list::-webkit-scrollbar {
+  /* border: 1px solid black; */
+  /* width: 235px; */
+  /* width: 303px; */
+  height: 8px;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background-color: darkgray;
+  border-radius: 9px;
+}
+
+/* .list::-webkit-scrollbar-track {
+  width: 10px;
+} */
+
 .item {
-  min-width: 192px;
-  height: 80px;
+  min-width: 149px;
+  /* min-height: 74px; */
+  border-radius: 15px;
+  background-color: var(--white);
+
   display: flex;
-  flex-basis: 200px;
-  border: 1px solid black;
-  border-radius: 10px;
+  align-items: center;
+  padding: 18px 14px;
   gap: 10px;
-  justify-content: space-between;
+}
+
+@media screen and (min-width: 375px) {
+  .list {
+    /* max-width: 303px; */
+  }
+
+  .item {
+    min-width: 149px;
+  }
 }

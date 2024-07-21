@@ -11,11 +11,11 @@ const CustomNavLink = ({ addClass = '', children, ...otherProps }) => {
   };
 
   return (
-    <div className={css.wrapper}>
+    <>
       <NavLink className={props => addClassName(props)} {...otherProps}>
         {children}
       </NavLink>
-    </div>
+    </>
   );
 };
 

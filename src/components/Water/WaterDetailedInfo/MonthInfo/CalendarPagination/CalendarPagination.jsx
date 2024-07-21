@@ -4,20 +4,35 @@ import { parseISO } from 'date-fns';
 import useChosenDate from 'src/hooks/useChosenDate.js';
 import monthAsName from 'src/utils/monthAsName.js';
 import css from './calendarPagination.module.css';
+import { useDispatch } from 'react-redux';
+import { fetchMonthlyWater } from 'src/redux/water/operations.js';
 
 export const CalendarPagination = () => {
   const { chosenDate, goToPreviousMonth, goToNextMonth, chosenYear } =
     useChosenDate();
+  const dispatch = useDispatch();
   const { month } = monthAsName(parseISO(chosenDate));
 
   return (
     <div className={css.wrapper}>
-      <Button onClick={goToPreviousMonth} addClass={css.btn}>
-        <BsChevronLeft size="12" className={css.arrow} />
+      <Button
+        onClick={() => {
+          goToPreviousMonth();
+          dispatch(fetchMonthlyWater());
+        }}
+        addClass={css.btn}
+      >
+        <BsChevronLeft className={css.arrow} />
       </Button>
       <span className={css.span}>{`${month}, ${chosenYear}`}</span>
-      <Button onClick={goToNextMonth} addClass={css.btn}>
-        <BsChevronRight size="12" className={css.arrow} />
+      <Button
+        onClick={() => {
+          goToNextMonth();
+          dispatch(fetchMonthlyWater());
+        }}
+        addClass={css.btn}
+      >
+        <BsChevronRight className={css.arrow} />
       </Button>
     </div>
   );

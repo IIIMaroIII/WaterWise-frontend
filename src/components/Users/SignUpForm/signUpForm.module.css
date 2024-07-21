@@ -102,7 +102,7 @@ h2.formTitle {
   margin: 5px 0 0;
 }
 
-p {
+/* p {
   text-align: center;
   margin-top: 20px;
   color: var(--black);
@@ -112,7 +112,7 @@ p {
 
   font-size: 14px;
 }
-
+// Никаких БАЗОВЫХ СЕЛЕКТОРОВ !!!
 a {
   color: var(--black);
   text-decoration: underline;
@@ -125,7 +125,7 @@ a {
 
 p a:hover {
   text-decoration: underline;
-}
+} */
 
 .imageSection {
   /* background-color: #e6e6e6; */

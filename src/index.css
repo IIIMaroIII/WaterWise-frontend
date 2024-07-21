@@ -10,6 +10,7 @@
   --red-error: #ef5050;
   --transition-delay: 500ms;
   --default-delay: 250ms;
+  --disabled-grey: #bcbcbc;
 }
 
 body {
