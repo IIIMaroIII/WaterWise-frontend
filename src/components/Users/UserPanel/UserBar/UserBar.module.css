@@ -19,7 +19,8 @@
 .user_avatar {
   width: 38px;
   height: 38px;
-  border-radius: 50%;
+  border-radius: 100%;
+  object-fit: cover;
 }
 
 .arrowIcon {
@@ -51,6 +52,11 @@
 
   .span {
     font-size: 16px;
+  }
+
+  .user_avatar {
+    width: 44px;
+    height: 44px;
   }
 }
 

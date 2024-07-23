@@ -28,8 +28,9 @@ const UserBar = () => {
         ) : (
           <span className={css.span}>User</span>
         )}
-        <div className={css.user_avatar}>
+        <div>
           <img
+            className={css.user_avatar}
             alt="User Avatar"
             src={
               user?.photoUrl ??

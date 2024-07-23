@@ -1,3 +1,7 @@
+.waterModal {
+  max-width: 344px;
+}
+
 .title {
   color: rgb(50, 63, 71);
   display: inline;
@@ -21,11 +25,20 @@
   gap: 24px;
 }
 @media (min-width: 768px) {
+  .waterModal {
+    width: 516px;
+  }
   .text {
     font-size: 18px;
   }
+  .title {
+    font-size: 24px;
+  }
 }
 @media (min-width: 1440px) {
+  .waterModal {
+    width: 516px;
+  }
   .title {
     font-size: 28px;
   }

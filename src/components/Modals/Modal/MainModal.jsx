@@ -67,7 +67,7 @@ const MainModal = () => {
         onRequestClose={() => dispatch(changeModal(false))}
         contentLabel="Example Modal"
         overlayClassName={css.modalOverlay}
-        className={css.modalContent}
+        // className={css.modalContent}
         shouldCloseOnOverlayClick={true}
         shouldCloseOnEsc={true}
         style={customStyles}

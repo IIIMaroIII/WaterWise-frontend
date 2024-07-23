@@ -155,22 +155,22 @@ h2.formTitle {
 
 .btnform {
   width: 100%;
-  height: 50px;
   padding: 10px;
-  font-family: Poppins;
-  background-color: #9be1a0;
+  background-color: var(--light-green);
   border: none;
   border-radius: 30px;
-  color: rgb(65, 71, 50);
+  background-color: #9be1a0;
+  color: var(--dark-blue);
   font-size: 14px;
   font-weight: 700;
   line-height: 1.29;
   cursor: pointer;
-  margin-top: 32px;
-
+  margin-top: 10px;
+  margin-bottom: 16px;
   letter-spacing: -0.01em;
   padding: 16px 0;
 }
+
 .form {
   margin-bottom: 70px;
 }
@@ -199,12 +199,12 @@ h2.formTitle {
 
 .form input:hover,
 .form input:focus {
-  border-color: var(--green-hover);
+  color: var(--green);
 }
 
 .btnform:hover,
 .btnform:active {
-  background-color: #87d28d;
+  color: var(--green);
 }
 
 /* .btnform:disabled {
@@ -212,16 +212,6 @@ h2.formTitle {
   color: var(--secondary-text);
   cursor: not-allowed;
 } */
-
-.btnform:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-}
-
-.btnform:disabled:hover,
-.btnform:disabled:focus {
-  transform: scale(1); /* Відміняє збільшення при наведенні */
-}
 
 @media (min-width: 768px) {
   .formSection {
