@@ -39,9 +39,9 @@ const ChartComponent = () => {
   const dispatch = useDispatch();
   const monthlyWaterItems = useSelector(selectMonthlyWaterItems);
 
-  useEffect(() => {
-    dispatch(fetchMonthlyWater());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchMonthlyWater());
+  // }, [dispatch]);
 
   const today = new Date();
   const sevenDaysAgo = subDays(today, 7);

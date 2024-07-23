@@ -52,9 +52,9 @@ AxiosWithCredentials.interceptors.response.use(
       originalRequest._retry = true;
       try {
         const result = await store.dispatch(refresh()).unwrap();
-        toast.success(
-          'Your expired access token has been successfully refreshed!',
-        );
+        // toast.success(
+        //   'Your expired access token has been successfully refreshed!',
+        // );
         originalRequest.headers[
           'Authorization'
         ] = `Bearer ${result.data.accessToken}`; // ПРОВЕРИТЬ result! должна быть data, но пока работает
@@ -68,9 +68,9 @@ AxiosWithCredentials.interceptors.response.use(
       }
     } else {
       const result = await store.dispatch(refresh()).unwrap();
-      toast.success(
-        'Your expired access token has been successfully refreshed!',
-      );
+      // toast.success(
+      //   'Your expired access token has been successfully refreshed!',
+      // );
       originalRequest.headers[
         'Authorization'
       ] = `Bearer ${result.data.accessToken}`; // ПРОВЕРИТЬ result! должна быть data, но пока работает

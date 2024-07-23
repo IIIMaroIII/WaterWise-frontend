@@ -41,14 +41,12 @@ export const CalendarItem = ({ day }) => {
               .unwrap()
               .then(res => {
                 if (res) {
-                  return toast.success(
+                  toast.success(
                     'Your daily records have been successfully fetched!',
                   );
                 }
                 dispatch(totalDailyVolumes(0));
-                return toast(
-                  'Your have not got any volume records for chosen day!',
-                );
+                toast('Your have not got any volume records for chosen day!');
               })
               .catch(err => {
                 console.error(err);
