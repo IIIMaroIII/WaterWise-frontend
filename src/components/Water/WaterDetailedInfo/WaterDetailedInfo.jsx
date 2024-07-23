@@ -13,15 +13,11 @@ import useChosenDate from 'src/hooks/useChosenDate.js';
 
 const WaterDetailedInfo = () => {
   const dispatch = useDispatch();
-  const { chosenDate } = useChosenDate();
 
   useEffect(() => {
-    if (!chosenDate) {
-      dispatch(fetchDailyWater());
-      dispatch(fetchMonthlyWater());
-    }
+    dispatch(fetchDailyWater());
     dispatch(fetchMonthlyWater());
-  }, [chosenDate, dispatch]);
+  }, [dispatch]);
 
   return (
     <section className={css.wrapper}>

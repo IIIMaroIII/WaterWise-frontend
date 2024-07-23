@@ -28,8 +28,10 @@ const UsersSettingsForm = () => {
     resolver: yupResolver(userSettingsFormValidation),
     defaultValues: {
       gender: 'woman',
-      weight: 0,
+      weight: 50,
       email: user.email,
+      waterIntake: 0,
+      activeTime: 0,
     },
   });
 
@@ -43,9 +45,7 @@ const UsersSettingsForm = () => {
     formData.append('email', data.email);
     formData.append('weight', data.weight);
     formData.append('activeTime', data.activeTime);
-    if (data.waterIntake) {
-      formData.append('waterIntake', data.waterIntake);
-    }
+    formData.append('waterIntake', data.waterIntake);
 
     dispatch(update(formData))
       .unwrap()

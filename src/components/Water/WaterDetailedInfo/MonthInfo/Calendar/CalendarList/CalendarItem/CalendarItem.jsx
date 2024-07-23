@@ -7,12 +7,12 @@ import { fetchDailyWater } from 'src/redux/water/operations.js';
 import toast from 'react-hot-toast';
 import { totalDailyVolumes } from 'src/redux/water/slice.js';
 import { useDailyVolumes } from 'src/hooks/useDailyVolumes.js';
-import { useMonthlyVolumes } from 'src/hooks/useMonthlyVolumes';
+// import { useMonthlyVolumes } from 'src/hooks/useMonthlyVolumes';
 
 export const CalendarItem = ({ day, month }) => {
   const dispatch = useDispatch();
-  const { setChosenDay, chosenDate} = useChosenDate();
-  // const { dailyVolumesPercentage, dailyItems } = useDailyVolumes();
+  const { setChosenDay, chosenDate } = useChosenDate();
+  const { dailyVolumesPercentage, dailyItems } = useDailyVolumes();
 
   const items = document.querySelectorAll(`.${css.btn_item}`);
 
@@ -30,10 +30,9 @@ export const CalendarItem = ({ day, month }) => {
   //   return dailyVolumesPercentage > 100 ? 100 : dailyVolumesPercentage;
   // };
 
-  const { dailyPercentages } = useMonthlyVolumes();
-  const formattedDay = `${month}-${String(day).padStart(2, '0')}`;
-  const percentage = dailyPercentages[formattedDay] || 0;
-
+  // const { dailyPercentages } = useMonthlyVolumes();
+  // const formattedDay = `${month}-${String(day).padStart(2, '0')}`;
+  // const percentage = dailyPercentages[formattedDay] || 0;
 
   return (
     <>
@@ -47,14 +46,12 @@ export const CalendarItem = ({ day, month }) => {
               .unwrap()
               .then(res => {
                 if (res) {
-                  return toast.success(
+                  toast.success(
                     'Your daily records have been successfully fetched!',
                   );
                 }
                 dispatch(totalDailyVolumes(0));
-                return toast(
-                  'Your have not got any volume records for chosen day!',
-                );
+                toast('Your have not got any volume records for chosen day!');
               })
               .catch(err => {
                 console.error(err);
@@ -64,7 +61,7 @@ export const CalendarItem = ({ day, month }) => {
         >
           {day}
         </Button>
-         <p>{`${percentage}%`}</p>
+        <p>{`${dailyVolumesPercentage}%`}</p>
       </li>
     </>
   );
