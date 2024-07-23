@@ -13,10 +13,6 @@ const userSettingsFormValidation = yup.object().shape({
   name: yup
     .string()
     .nullable(true)
-    .min(
-      MIN_CHAR_VALIDATION,
-      `Your name must be more than ${MIN_CHAR_VALIDATION} characters!`,
-    )
     .max(
       MAX_CHAR_VALIDATION,
       `Your name must be less than ${MAX_CHAR_VALIDATION} characters!`,
@@ -30,19 +26,10 @@ const userSettingsFormValidation = yup.object().shape({
     ),
   weight: yup
     .number()
-    .positive('Weight must be a positive number')
     .required('Your weight is required for counting water daily norma'),
-  activeTime: yup
-    .number(0)
-    .nullable(true)
-    .notRequired()
-    .positive('Active time must be a positive number')
-    .typeError('Active time must be a number'),
+  activeTime: yup.number(0).typeError('Active time must be a number'),
   waterIntake: yup
     .number()
-    .nullable(true)
-    .notRequired()
-    .positive('Water intake must be a positive number')
     .max(
       MAX_CHAR_WATER_VALIDATION,
       `Emount of water intake must not be greater than ${MAX_CHAR_WATER_VALIDATION} number!`,
