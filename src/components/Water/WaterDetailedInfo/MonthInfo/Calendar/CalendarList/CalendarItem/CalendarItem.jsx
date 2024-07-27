@@ -6,13 +6,10 @@ import useChosenDate from 'src/hooks/useChosenDate.js';
 import { fetchDailyWater } from 'src/redux/water/operations.js';
 import toast from 'react-hot-toast';
 import { totalDailyVolumes } from 'src/redux/water/slice.js';
-import { useDailyVolumes } from 'src/hooks/useDailyVolumes.js';
-// import { useMonthlyVolumes } from 'src/hooks/useMonthlyVolumes';
 
 export const CalendarItem = ({ day, month }) => {
   const dispatch = useDispatch();
-  const { setChosenDay, chosenDate } = useChosenDate();
-  const { dailyVolumesPercentage, dailyItems } = useDailyVolumes();
+  const { setChosenDay } = useChosenDate();
 
   const items = document.querySelectorAll(`.${css.btn_item}`);
 
@@ -25,14 +22,6 @@ export const CalendarItem = ({ day, month }) => {
         item.classList.remove(`${css.active}`);
     });
   };
-
-  // const dailyVolume = () => {
-  //   return dailyVolumesPercentage > 100 ? 100 : dailyVolumesPercentage;
-  // };
-
-  // const { dailyPercentages } = useMonthlyVolumes();
-  // const formattedDay = `${month}-${String(day).padStart(2, '0')}`;
-  // const percentage = dailyPercentages[formattedDay] || 0;
 
   return (
     <>
@@ -61,7 +50,7 @@ export const CalendarItem = ({ day, month }) => {
         >
           {day}
         </Button>
-        <p>{`${dailyVolumesPercentage}%`}</p>
+        <p>{`0%`}</p>
       </li>
     </>
   );

@@ -6,6 +6,7 @@ import ChartComponent from 'src/components/Statistics/ChartComponent';
 import { setShowChart } from 'src/redux/chart/slice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import Button from 'src/components/REUSABLE/Button/Button.jsx';
 
 const MonthInfo = () => {
   const dispatch = useDispatch();
@@ -32,15 +33,16 @@ const MonthInfo = () => {
         )}
         <div className={css.paginationWrapper}>
           <CalendarPagination />
-          <svg
-            className={css.monthInfoIcon}
-            width="20"
-            height="20"
-            onClick={handleIconClick}
-            style={{ cursor: 'pointer' }}
-          >
-            <use href={`${sprite}#icon-pie-chart-02`}></use>
-          </svg>
+          <Button addClass={css.monthInfoIcon}>
+            <svg
+              width="20"
+              height="20"
+              onClick={handleIconClick}
+              style={{ cursor: 'pointer' }}
+            >
+              <use href={`${sprite}#icon-pie-chart-02`}></use>
+            </svg>
+          </Button>
         </div>
       </div>
       {showChart ? <ChartComponent /> : <Calendar />}

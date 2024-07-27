@@ -9,7 +9,7 @@ const WaterList = () => {
 
   return (
     <ul className={css.list}>
-      {!dailyItems?.length ? (
+      {!dailyItems && dailyItems?.length === 0 ? (
         <p className={css.p}>You do not have any records!</p>
       ) : (
         dailyItems.map(item => {
