@@ -11,10 +11,7 @@ import { useMediaQuery } from '@mui/material';
 import sprite from '../../assets/pictures/HomePage/sprite.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectMonthlyWaterItems } from 'src/redux/water/selectors';
-import { useEffect } from 'react';
-import { fetchMonthlyWater } from 'src/redux/water/operations';
 import { format, subDays } from 'date-fns';
-import useChosenDate from 'src/hooks/useChosenDate.js';
 
 const CustomTooltip = ({ active = false, payload = [], coordinate }) => {
   if (active && payload && payload.length) {
@@ -38,10 +35,6 @@ const CustomTooltip = ({ active = false, payload = [], coordinate }) => {
 const ChartComponent = () => {
   const dispatch = useDispatch();
   const monthlyWaterItems = useSelector(selectMonthlyWaterItems);
-
-  // useEffect(() => {
-  //   dispatch(fetchMonthlyWater());
-  // }, [dispatch]);
 
   const today = new Date();
   const sevenDaysAgo = subDays(today, 7);
